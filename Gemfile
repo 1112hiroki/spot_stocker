@@ -51,3 +51,5 @@ group :test do
 end
 
 gem 'coffee-rails', '~> 5.0'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
