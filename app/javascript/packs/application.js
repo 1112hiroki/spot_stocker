@@ -20,3 +20,5 @@ require("channels")
 //= require bootstrap-sprockets
 require("trix")
 require("@rails/actiontext")
+require('jquery')
+require('custom/upload')
