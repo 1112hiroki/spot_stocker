@@ -3,6 +3,6 @@ class SpotsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content) 
+    params.require(:post).permit(:title, :content)
   end
 end
