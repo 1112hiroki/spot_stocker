@@ -10,6 +10,17 @@ body {
   display: none;
 }
 
+.error_message {
+  text-align: center;
+  color: red;
+  margin: 0 0 30px 0;
+
+}
+
+.field_with_errors {
+  display: contents;
+}
+
 // header
 .header {
   background: #F8B44E;
@@ -129,8 +140,8 @@ body {
   .userProfileImg {
     position: relative;
     margin: 0 auto 10px auto;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background: #F8B44E;
     display: flex;
     cursor: pointer;
