@@ -12,7 +12,7 @@
 * sqlite
 
 # セットアップ
-　・1112hiroki/spot_stockerのリポジトリをあなたのリポジトリに[fork](https://github.com/1112hiroki/spot_stocker)して下さい。
+　・1112hiroki/spot_stockerのリポジトリをあなたのリポジトリに[fork](https://qiita.com/YumaInaura/items/acff806290c8953d3185)して下さい。
 
 　・各種Gemのインストール
 ```
