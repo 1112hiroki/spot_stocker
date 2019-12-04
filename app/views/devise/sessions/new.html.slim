@@ -1,0 +1,20 @@
+.signinPage
+  .container
+    h2.title
+      | ログイン
+    = devise_error_messages!
+    = form_with scope: resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-5, new_user" }, local: true do |f|
+      .form-group
+        = f.label :email
+        br
+        = f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", placeholder: "emailを入力してください"
+      .form-group
+        = f.label :password
+        br
+        = f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "パスワードを入力してください"
+      .form-group.text-center
+        = f.submit "ログイン", class: "loginBtn"
+      .text-center.m-3.border
+        | アカウントを持っていませんか？
+      .text-center
+        = render "devise/shared/links"

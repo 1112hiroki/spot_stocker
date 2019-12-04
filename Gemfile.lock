@@ -105,6 +105,9 @@ GEM
       sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    hpricot (0.8.6)
+    html2slim (0.2.0)
+      hpricot
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.9.3)
@@ -263,6 +266,7 @@ DEPENDENCIES
   coffee-rails (~> 5.0)
   devise
   font-awesome-sass (~> 5.9.0)
+  html2slim
   image_processing (~> 1.9.3)
   jbuilder (~> 2.7)
   jquery-rails

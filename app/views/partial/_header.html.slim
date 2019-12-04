@@ -1,0 +1,19 @@
+header.header
+  nav.nav
+    ul.header_menu
+      li.header_menu_title
+        = link_to "Spotストッカー", root_path, class: "nav-link text-white"
+      li
+        ul.header_menu_inner
+          - if current_user
+            li.nav-link.user_name
+              = link_to(current_user.name,"/users/#{current_user.id}")
+            .userHeader_img
+              = image_tag current_user.image.url(:thumb_header) ,class: 'user_image'
+            li
+              = link_to "ログアウト", destroy_user_session_path , class: "nav-link btn btn-outline-light", method: :delete
+          - else
+            li
+              = link_to "アカウント作成", new_user_registration_path, class: "nav-link btn btn-outline-light"
+            li
+              = link_to "ログイン", new_user_session_path, class: "nav-link login_button btn btn-light"

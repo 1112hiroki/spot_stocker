@@ -4,11 +4,11 @@ class ImgNameUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   version :thumb do
-    process resize_to_fit: [400, 400]
+    process resize_to_fit: [250, 250]
   end
 
   version :thumb_header do
-    process resize_to_fit: [80, 80]
+    process resize_to_fit: [50, 50]
   end
 
   storage :file

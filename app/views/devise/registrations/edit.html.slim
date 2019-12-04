@@ -1,0 +1,80 @@
+.sinupPage
+  .titleArea
+    h1
+      | ユーザー情報を編集
+      / = resource_name.to_s.humanize
+  .container
+    = form_with scope: resource, as: resource_name, url: registration_path(resource_name), html: { class: "mt-5, signupForm", method: :put } do |f|
+      / = render "devise/shared/error_messages", resource: resource
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: "form-control", placeholder: "名前を入力してください"
+      .form-group
+        = f.label :email
+        = f.email_field :email, class: "form-control", placeholder: "emailを入力してください", autocomplete: "email"
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        div
+          | Currently waiting confirmation for:
+          = resource.unconfirmed_email
+      .form-group
+        = f.label :profile
+        em
+          | (160文字以内で入力してください)
+        br
+        = f.text_area :profile, class: "form-control", placeholder: "プロフィールを入力してください"
+      .form-group
+        = f.label :sex
+        br
+        = f.label '男：'
+        = f.radio_button :sex, :男
+        = f.label '　女：'
+        = f.radio_button :sex, :女
+      .form-group
+        = f.label :age
+        br
+        = f.label '10代：'
+        = f.radio_button :age, :１０代
+        = f.label '　20代：'
+        = f.radio_button :age, :２０代
+        = f.label '　30代：'
+        = f.radio_button :age, :３０代
+        = f.label '　40代：'
+        = f.radio_button :age, :４０代
+        = f.label '　50代~：'
+        = f.radio_button :age, :５０代以上
+      .form-group
+        | プロフィール画像
+        label.rounded-circle.userProfileImg[for="file_photo"]
+          .userProfileImg_description 画像をアップロード
+          i.fas.fa-camera.fa-3x
+          = f.file_field :image, id: "file_photo"
+        #userImgPreview.userImgPreview
+          img#thumbnail.userImgPreview_content[accept="image/*" src=""]
+          p.userImgPreview_text
+            | 画像をアップロード済み
+      .form-group
+        = f.label :password
+        - if @minimum_password_length
+          em
+            | (
+            = @minimum_password_length
+            | 文字以上入力してください)
+        br
+        = f.password_field :password, class: "form-control", placeholder:"パスワードを入力してください", autocomplete: "off"
+      .form-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, class:"form-control", placeholder: "パスワードを再度入力してください", autocomplete: "off"
+      .form-group
+        = f.label '情報更新するにはパスワードを入力してください'
+        br
+        = f.password_field :current_password, class: "form-control", placeholder: "パスワードを入力して更新ボタンを押す"
+      .actions.text-center
+        = f.submit "更新",class: "btn submitBtn"
+      .text-center
+        = button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当にアカウントを削除しますか?　取り消すことは出来ません。" }, method: :delete, class: "btn deleteBtn"
+      .text-center.m-3.border
+        | 情報を変更せずに戻る場合はこちら
+        br
+        = link_to "編集を取り消し", :back
+
+

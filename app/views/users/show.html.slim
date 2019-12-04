@@ -1,0 +1,30 @@
+.container
+  h1
+    | ユーザー情報
+  .userInfo_img
+    = image_tag @user.image.url(:thumb) ,class: 'user_image'
+    / = image_tag @user.image.url, class: 'user_image'
+  p
+    | 名前 :
+    = @user.name
+  p
+    | メールアドレス :
+    = @user.email
+  p
+    | 自己紹介 :
+    = @user.profile
+  p
+    | 年代 :
+    = @user.age
+  p
+    | 性別 :
+    = @user.sex
+  p
+    | 登録日 :
+    = @user.created_at
+
+
+  .userAction_edit.userAction_common
+    = link_to(content_tag(:i, "", class: 'fas fa-edit fa-2x'), edit_user_registration_path)
+    span
+      | 情報を編集

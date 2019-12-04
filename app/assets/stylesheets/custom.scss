@@ -70,9 +70,19 @@ body {
   }
 }
 
+// border
+.border {
+  margin-top: 2rem !important;
+  padding-top: 2rem !important;
+  border-top: 1px solid #aaa !important;
+  border-right: 0px !important;
+  border-bottom: 0px !important;
+  border-left: 0px !important;
+}
+
 // button
-.submitBtn {
-  background: #29b744;
+.deleteBtn {
+  background: #c9442d;
   color: #fff;
   width: 200px;
   margin-top: 20px;
