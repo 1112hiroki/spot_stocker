@@ -12,7 +12,7 @@
 * sqlite
 
 # セットアップ
-*1112hiroki/spot_stockerのリポジトリをあなたのリポジトリに[fork]して下さい。
+　・1112hiroki/spot_stockerのリポジトリをあなたのリポジトリに[fork]https://github.com/1112hiroki/spot_stockerして下さい。
 
 　・各種Gemのインストール
 ```
@@ -21,9 +21,9 @@ bundle install
 
 　・データ準備
 ```
+yarn install --check-files # yarnのインストール + node_modulesにあるファイルが削除されていないことを確認
 rails db:create # DB作成
 rails db:migrate # テーブル作成
-rails db:seed # 初期データ投入
 ```
 
 　・画面確認
