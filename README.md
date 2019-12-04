@@ -1,24 +1,33 @@
-# README
+# 概要
+デートで失敗したくない人のためのデートスポット共有サイト「Spotストッカー」。
+「デートの予定を立てる時間がない」「情報量が多すぎてどこを選んだらいいのか分からない」こんな悩みを解決したい方、どうぞ。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# URL
+まだインターネット公開はされていません。
 
-* Ruby version
+# 環境
+* Ruby 2.5.1
+* Rails 6.0.1
+* sqlite
 
-* System dependencies
+# セットアップ
+*1112hiroki/spot_stockerのリポジトリをあなたのリポジトリに[fork]して下さい。
 
-* Configuration
+　・各種Gemのインストール
+```
+bundle install
+```
 
-* Database creation
+　・データ準備
+```
+rails db:create # DB作成
+rails db:migrate # テーブル作成
+rails db:seed # 初期データ投入
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+　・画面確認
+```
+rails s
+```
+[http://localhost:3000](http://localhost:3000) にアクセスしてログイン画面が表示されればOK。
