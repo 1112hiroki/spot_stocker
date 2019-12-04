@@ -1,0 +1,16 @@
+.container
+  h2.text-center
+    | 新規投稿
+  = form_with model: @post, local:true do |form|
+    .form-group
+      = form.label :title
+      | 　
+      br
+      = form.text_field :title, class: "form-control"
+    .form-group
+      = form.label :content
+      br
+      = form.rich_text_area :content
+    hr
+    .form-label-group.col-md-6.mx-auto
+      = form.submit "登録", class: "btn btn-lg btn-primary btn-block"

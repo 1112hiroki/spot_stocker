@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title
+      | Spotストッカー
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application'
+  body
+    = render 'partial/header'
+    - if flash[:notice]
+      .alert.alert-info
+        = flash[:notice]
+    - if flash[:alert]
+      .alert.alert-danger
+        = flash[:alert]
+    = yield
+|  　
