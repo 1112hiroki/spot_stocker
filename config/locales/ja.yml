@@ -9,6 +9,13 @@ ja:
         profile: "プロフィール"
         sex: "性別"
         age: "年代"
+      spot:
+        title: "タイトル"
+        content: "スポット詳細"
+        name: "投稿ユーザー"
+        sex: "性別"
+        age: "年代"
+        created_at: "投稿日時"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

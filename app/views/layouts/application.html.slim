@@ -9,6 +9,8 @@ html
     = javascript_pack_tag 'application'
   body
     = render 'partial/header'
+    - if flash.notice.present?
+      .alert.alert-success= flash.notice
     - if flash[:notice]
       .alert.alert-info
         = flash[:notice]
@@ -16,4 +18,3 @@ html
       .alert.alert-danger
         = flash[:alert]
     = yield
-|  　

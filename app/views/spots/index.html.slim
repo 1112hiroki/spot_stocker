@@ -1,0 +1,27 @@
+.container
+  h1 スポット一覧
+
+  .md-3
+  table.table.table-hover
+    thead.thead-default
+      tr
+        th= Spot.human_attribute_name(:title)
+        / th= Spot.human_attribute_name(:content)
+        th= Spot.human_attribute_name(:name)
+        th= Spot.human_attribute_name(:sex)
+        th= Spot.human_attribute_name(:age)
+        th= Spot.human_attribute_name(:created_at)
+        th
+    tbody
+      - @spots.each do |spot|
+        tr
+          td= link_to spot.title, spot_path(spot)
+          / td== spot.content
+          td= link_to spot.user.name,"/users/#{spot.user.id}"
+          td= spot.user.sex
+          td= spot.user.age
+          td= simple_time(spot.created_at)
+          td
+          - if current_user
+            = link_to '編集', edit_spot_path(spot), class: 'btn btn-primary'
+            = link_to '削除', spot, data: { confirm: "投稿の削除をします。よろしいですか？" }, method: :delete, class: 'btn btn-danger'

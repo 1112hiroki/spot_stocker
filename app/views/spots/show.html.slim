@@ -1,0 +1,20 @@
+.container
+  h1 スポット詳細
+
+  .nav.justify-content-end
+    - if current_user
+      =link_to '編集', edit_spot_path(@spot), class: 'btn btn-primary'
+      = link_to '削除', @spot, data: { confirm: "投稿の削除をします。よろしいですか？" }, method: :delete, class: 'btn btn-danger'
+    =link_to 'スポット一覧へ', spots_path, class: 'nav-link'
+  table.table
+    tbody
+      tr
+        th= Spot.human_attribute_name(:title)
+        td= @spot.title
+      tr
+        th= Spot.human_attribute_name(:created_at)
+        td= simple_time(@spot.created_at)
+      tr
+        th= Spot.human_attribute_name(:content)
+        td== @spot.content
+
