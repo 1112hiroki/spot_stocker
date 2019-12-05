@@ -3,11 +3,14 @@ header.header
     ul.header_menu
       li.header_menu_title
         = link_to "Spotストッカー", root_path, class: "nav-link text-white"
+      .header_menu_spot
+        = link_to 'スポット一覧',spots_path,class: 'btn btn-secondary'
       li
         ul.header_menu_inner
           - if current_user
+            = link_to '新規投稿',new_spot_path,class: 'btn btn-danger'
             li.nav-link.user_name
-              = link_to(current_user.name,"/users/#{current_user.id}")
+              = link_to current_user.name,"/users/#{current_user.id}"
             .userHeader_img
               = image_tag current_user.image.url(:thumb_header) ,class: 'user_image'
             li

@@ -57,6 +57,10 @@ body {
   }
 }
 
+.header_menu_spot {
+  text-align: left;
+}
+
 .user_name {
   padding: 0px;
 }
@@ -69,6 +73,15 @@ body {
     font-size: 20px;
   }
 }
+.userHeader_img {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin-right: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  }
+
 
 // border
 .border {
@@ -244,7 +257,7 @@ body {
 }
 
 
-//edit
+//show
 .userInfo_img {
   width: 200px;
   height: 200px;
@@ -259,12 +272,3 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-.userHeader_img {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  margin-right: 20px;
-  border-radius: 50%;
-  overflow: hidden;
-  }

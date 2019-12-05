@@ -21,10 +21,12 @@
     = @user.sex
   p
     | 登録日 :
-    = @user.created_at
+    = simple_time(@user.created_at)
 
 
-  .userAction_edit.userAction_common
-    = link_to(content_tag(:i, "", class: 'fas fa-edit fa-2x'), edit_user_registration_path)
-    span
-      | 情報を編集
+  - if current_user
+    .userAction_edit.userAction_common
+      / = link_to(content_tag(:i, "", class: 'fas fa-edit fa-2x'), edit_user_registration_path)
+      / span
+      /   | 情報を編集
+      = link_to '編集',edit_user_registration_path,class: 'btn btn-primary'

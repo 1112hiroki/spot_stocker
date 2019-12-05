@@ -11,4 +11,5 @@ class User < ApplicationRecord
   validates :age, presence: true
   enum age: { １０代: 1, ２０代: 2, ３０代: 3, ４０代: 4, ５０代以上: 5 }
   mount_uploader :image, ImgNameUploader
+  has_many :spots, dependent: :destroy
 end

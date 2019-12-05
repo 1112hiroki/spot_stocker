@@ -1,5 +1,5 @@
 .container
-  h1 新規投稿
+  h1 投稿の編集
 
   .nav.justify-content-end
     =link_to 'スポット一覧へ', spots_path, class: 'nav-link'
@@ -15,4 +15,4 @@
       = form.rich_text_area :content
     hr
     .form-label-group.col-md-6.mx-auto
-      = form.submit "登録", class: "btn btn-lg btn-primary btn-block"
+      = form.submit "更新する", class: "btn btn-lg btn-primary btn-block"
