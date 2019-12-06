@@ -17,4 +17,15 @@
       tr
         th= Spot.human_attribute_name(:content)
         td== @spot.content
+  - @spot.comments.order(:created_at).each do |comment|
+    = image_tag comment.user.image.url(:thumb), class: 'user_image'
+    p= comment.user.name
+    p= l comment.created_at
+    p= comment.content
+
+  p コメント入力
+  = simple_form_for(@comment, url: spot_comments_path(@spot, @comment), remote: true) do |f|
+    = f.input :content
+    = f.submit
+
 
