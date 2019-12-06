@@ -80,8 +80,12 @@ body {
   margin-right: 20px;
   border-radius: 50%;
   overflow: hidden;
-  }
+  display: inline-block;
+}
 
+.comment-created-at {
+  float: right;
+}
 
 // border
 .border {
