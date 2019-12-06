@@ -17,11 +17,15 @@
       tr
         th= Spot.human_attribute_name(:content)
         td== @spot.content
+  hr class="my-0"
+  h4 コメント一覧
   - @spot.comments.order(:created_at).each do |comment|
-    = image_tag comment.user.image.url(:thumb), class: 'user_image'
-    p= comment.user.name
+    .userHeader_img
+              = image_tag current_user.image.url(:thumb_header) ,class: 'user_image'
+    a = link_to comment.user.name,user_path(comment.user)
     p= l comment.created_at
     p= comment.content
+    hr class="my-0"
 
   p コメント入力
   = simple_form_for(@comment, url: spot_comments_path(@spot, @comment), remote: true) do |f|

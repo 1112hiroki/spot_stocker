@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
       render :error
     end
 	end
-	
+
 	def destroy
 		render :error unless @comment.destroy
 	end
