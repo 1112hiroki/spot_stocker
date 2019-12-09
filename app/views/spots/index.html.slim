@@ -21,7 +21,3 @@
           td= spot.user.sex
           td= spot.user.age
           td= simple_time(spot.created_at)
-          td
-          - if current_user
-            = link_to '編集', edit_spot_path(spot), class: 'btn btn-primary'
-            = link_to '削除', spot, data: { confirm: "投稿の削除をします。よろしいですか？" }, method: :delete, class: 'btn btn-danger'

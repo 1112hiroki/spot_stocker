@@ -6,6 +6,9 @@ class CommentsController < ApplicationController
 		@comment = @spot.comments.build(comment_params)
 		@comment.user = current_user
 		render :error unless @comment.save
+		respond_to do |format|
+			format.js
+		end
 	end
 
 	def update
