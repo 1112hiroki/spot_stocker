@@ -16,6 +16,8 @@ ja:
         sex: "性別"
         age: "年代"
         created_at: "投稿日時"
+      comment:
+        content: "コメントを投稿する"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
