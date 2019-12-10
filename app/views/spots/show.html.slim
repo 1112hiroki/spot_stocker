@@ -19,8 +19,8 @@
         td== @spot.content
   hr class="my-0"
   h4 コメント一覧
-  =render @comment
   #comment-form
+    =render 'comments/comment', spot: @spot
 
   = simple_form_for(@comment, url: spot_comments_path(@spot, @comment), remote: true) do |f|
     = f.label :content, required: false, class: 'mt-3'

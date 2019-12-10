@@ -1,8 +1,9 @@
-  - @spot.comments.order(:created_at).each do |comment|
+  - spot.comments.order(:created_at).each do |comment|
     span.userHeader_img
       = image_tag current_user.image.url(:thumb_header) ,class: 'user_image inline-block'
     = link_to comment.user.name,user_path(comment.user) ,class: 'align-top'
-    / = link_to '削除', @comment, method: :delete
     span.comment-created-at = simple_time(comment.created_at)
+    .text-right
+      = link_to '削除', spot_comment_path(spot, comment), method: :delete, data: { confirm: 'コメントを削除しますか？' }, remote: true
     p= comment.content
     hr class="my-0"
