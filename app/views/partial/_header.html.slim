@@ -4,11 +4,14 @@ header.header
       li.header_menu_title
         = link_to "Spotストッカー", root_path, class: "nav-link text-white"
       .header_menu_spot
-        = link_to 'スポット一覧',spots_path,class: 'btn btn-secondary'
+        = link_to 'スポット一覧',spots_path,class: 'btn btn-primary fas fa-map-marked-alt'
+        - if current_user
+          = link_to 'ストック一覧',stocks_path,class: 'btn btn-success fas fa-folder-plus'
+
       li
         ul.header_menu_inner
           - if current_user
-            = link_to '新規投稿',new_spot_path,class: 'btn btn-danger'
+            = link_to '新規投稿',new_spot_path,class: 'btn btn-danger far fa-sticky-note'
             li.nav-link.user_name
               = link_to current_user.name,"/users/#{current_user.id}"
             .userHeader_img
