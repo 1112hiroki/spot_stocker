@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_111533) do
+ActiveRecord::Schema.define(version: 2019_12_14_135359) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 2019_12_06_111533) do
     t.index ["user_id"], name: "index_spots_on_user_id"
   end
 
+  create_table "stocks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "spot_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["spot_id"], name: "index_stocks_on_spot_id"
+    t.index ["user_id", "spot_id"], name: "index_stocks_on_user_id_and_spot_id", unique: true
+    t.index ["user_id"], name: "index_stocks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "profile", default: ""
@@ -82,4 +92,6 @@ ActiveRecord::Schema.define(version: 2019_12_06_111533) do
   add_foreign_key "comments", "spots"
   add_foreign_key "comments", "users"
   add_foreign_key "spots", "users"
+  add_foreign_key "stocks", "spots"
+  add_foreign_key "stocks", "users"
 end

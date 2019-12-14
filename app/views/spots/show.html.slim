@@ -1,8 +1,11 @@
 .container
   h1 スポット詳細
 
+  div id="spot-#{@spot.id}"
+    = render partial: 'stocks/stock', locals: { spot: @spot }
+
   .nav.justify-content-end
-    - if current_user
+    - if @spot.user.id == current_user.id
       =link_to '編集', edit_spot_path(@spot), class: 'nav-link text-muted'
       =link_to '削除', @spot, data: { confirm: "投稿の削除をします。よろしいですか？" }, method: :delete, class: 'nav-link text-muted'
     =link_to 'スポット一覧へ', spots_path, class: 'nav-link text-muted'
