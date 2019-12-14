@@ -1,0 +1,7 @@
+-@stock_spots.each do |spot|
+  p= spot.title
+  p= spot.user.name
+
+<!-- 10件毎にページネーション -->
+.paginate
+  = paginate @stock_spots

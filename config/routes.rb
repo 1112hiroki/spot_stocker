@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   root 'top#index'
   resources :users
-  resources :spots do 
+  resources :spots do
     resources :comments, only: %i[create update destroy]
   end
+  resources :stocks, only: %i(index create destroy)
 end
