@@ -1,6 +1,6 @@
   - spot.comments.order(:created_at).each do |comment|
     span.userHeader_img
-      = image_tag current_user.image.url(:thumb_header) ,class: 'user_image inline-block'
+      = image_tag comment.user.image.url(:thumb_header) ,class: 'user_image inline-block'
     = link_to comment.user.name,user_path(comment.user) ,class: 'align-top'
     span.comment-created-at = simple_time(comment.created_at)
     .text-right
