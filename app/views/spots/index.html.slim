@@ -21,3 +21,6 @@
           td= spot.user.sex
           td= spot.user.age
           td= simple_time(spot.created_at)
+
+  .paginate
+    = paginate @spots

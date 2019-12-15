@@ -13,7 +13,8 @@ class SpotsController < ApplicationController
   end
 
   def index
-    @spots = Spot.all
+    spots = Spot.all
+    @spots = Kaminari.paginate_array(spots).page(params[:page]).per(10)
   end
 
   def show
