@@ -1,8 +1,8 @@
 .container
   h1 新規投稿
 
-  .nav.justify-content-end
-    =link_to 'スポット一覧へ', spots_path, class: 'nav-link'
+  .nav.justify-content-start
+    =link_to 'スポット一覧へ', spots_path, class: 'nav-link text-muted'
   = form_with model: @spot, local:true do |form|
     .form-group
       = form.label :title

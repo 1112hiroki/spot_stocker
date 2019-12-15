@@ -1,1 +1,1 @@
-$("#spot-<%= @spot.id %> .stock").html("<%= escape_javascript(render partial: 'stocks/stock', locals: { spot: @spot }) %>");
+$("#stock-<%= @spot.id %> .stock").html("<%= escape_javascript(render partial: 'stocks/stock', locals: { spot: @spot }) %>");

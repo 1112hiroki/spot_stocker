@@ -15,4 +15,5 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create update destroy]
   end
   resources :stocks, only: %i(index create destroy)
+  resources :likes,  only: %i(index create destroy)
 end

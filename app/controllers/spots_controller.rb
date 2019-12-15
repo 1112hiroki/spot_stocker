@@ -20,6 +20,7 @@ class SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
     @comment = @spot.comments.build
+    @likes_count = Like.where(spot_id: @spot.id).count
   end
 
   def edit

@@ -1,0 +1,15 @@
+  .comment
+    .comment_count
+      =spot.comments.count
+    = button_tag(class: "btn btn-comment btn-circle") do
+      i.far.fa-comment-dots
+    / - if spot.commented?(current_user)
+      = form_with model: spot.comments.find_by(user_id: current_user.id), method: :delete do |f|
+        = button_tag(class: "btn btn-success btn-circle") do
+          i.fas.fa-folder-plus
+    / - else
+      = form_with model: spot.comments.build do |f|
+        div
+          = hidden_field_tag :spot_id, spot.id
+        = button_tag(class: "btn btn-comment btn-outline-secondary btn-circle") do
+          i.fas.fa-folder-open

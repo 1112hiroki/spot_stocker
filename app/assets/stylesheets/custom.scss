@@ -113,7 +113,71 @@ body {
   }
 }
 
-//top
+.btn-circle{
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  padding: 3px 0;
+  font-size: 23px;
+  line-height: 1.428571429;
+  border-radius: 25px;
+}
+
+// like
+.like {
+  text-align: center;
+  color: #F8B44E;
+  font-weight: 700;
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.btn-liked {
+  background-color: #F8B44E;
+  color: #fff;
+    &:hover{
+      color: #fff;
+    }
+}
+
+.btn-like {
+  border: solid 2px #F8B44E;
+  color: #F8B44E;
+    &:hover{
+      color: #fff;
+    }
+}
+
+// stock
+.stock {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn-stock {
+  border: solid 2px;
+  &:hover{
+    color: #fff;
+    background-color: #28A745 !important;
+    border: solid 2px #28A745;
+  }
+}
+
+// comment
+.comment {
+  text-align: center;
+  margin-top: 30px;
+  color: #56CCF2;
+  font-weight: 700;
+}
+
+.btn-comment {
+  background: #56CCF2;
+  color: #fff
+}
+
+
+// top
 .top {
   text-align: center;
 }
