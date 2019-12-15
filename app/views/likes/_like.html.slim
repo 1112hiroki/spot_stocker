@@ -1,0 +1,14 @@
+- if current_user != spot.user && user_signed_in?
+  .like
+    .likes_count
+      =spot.likes.count
+    - if spot.liked?(current_user)
+      = form_with model: spot.likes.find_by(user_id: current_user.id), method: :delete do |f|
+        = button_tag(class: "btn btn-liked btn-circle") do
+          i.fas.fa-check
+    - else
+      = form_with model: spot.likes.build do |f|
+        div
+          = hidden_field_tag :spot_id, spot.id
+        = button_tag(class: "btn btn-like btn-outline-warning btn-circle") do
+          i.far.fa-thumbs-up
