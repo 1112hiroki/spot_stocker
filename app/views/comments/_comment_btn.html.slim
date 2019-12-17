@@ -1,8 +1,8 @@
   .comment
     .comment_count
       =spot.comments.count
-    = button_tag(class: "btn btn-comment btn-circle") do
-      i.far.fa-comment-dots
+    = link_to '#1', class: "btn btn-comment btn-circle" do
+      i.far.fa-comment-dots.mt-2
     / - if spot.commented?(current_user)
       = form_with model: spot.comments.find_by(user_id: current_user.id), method: :delete do |f|
         = button_tag(class: "btn btn-success btn-circle") do

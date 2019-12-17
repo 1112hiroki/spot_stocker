@@ -1,5 +1,6 @@
 doctype html
 html
+  =favicon_link_tag
   head
     title
       | Spotストッカー
@@ -9,12 +10,6 @@ html
     = javascript_pack_tag 'application'
   body
     = render 'partial/header'
-    - if flash.notice.present?
-      .alert.alert-success= flash.notice
-    - if flash[:notice]
-      .alert.alert-info
-        = flash[:notice]
-    - if flash[:alert]
-      .alert.alert-danger
-        = flash[:alert]
+    - flash.each do |key, value|
+      = content_tag(:div, value, class: "flash flash__#{key}")
     = yield
