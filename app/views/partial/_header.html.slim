@@ -2,16 +2,26 @@ header.header
   nav.nav
     ul.header_menu
       li.header_menu_title
-        = link_to "Spotストッカー", root_path, class: "nav-link text-white"
-      .header_menu_spot
-        = link_to 'スポット一覧',spots_path,class: 'btn btn-primary fas fa-map-marked-alt'
-        - if current_user
-          = link_to 'ストック一覧',stocks_path,class: 'btn btn-success fas fa-folder-plus'
-
+        = link_to root_path, class: "nav-link text-white" do
+          = image_tag '/images/icon.png',class: "icon-size mb-1 mr-1"
+          span Spotストッカー
+      .row.size
+        .col-2
+          = link_to spots_path, class: "btn btn-header btn-header-circle" do
+            i.fas.fa-map-marked-alt.mt-2
+            p.text-header スポット一覧
+        .col-2
+          - if current_user
+            = link_to stocks_path, class: "btn btn-header btn-header-circle" do
+              i.fas.fa-folder-plus.mt-2
+              p.text-header ストック一覧
       li
         ul.header_menu_inner
           - if current_user
-            = link_to '新規投稿',new_spot_path,class: 'btn btn-danger far fa-sticky-note'
+            = link_to new_spot_path, class: "btn btn-header btn-header-circle mr-4" do
+              i.fas.fa-file-alt.mt-2
+              p.post-circle 投稿をする
+
             li.nav-link.user_name
               = link_to current_user.name,"/users/#{current_user.id}"
             .userHeader_img
