@@ -1,10 +1,10 @@
   - spot.comments.order(:created_at).each do |comment|
-    span.userHeader_img
-      = image_tag comment.user.image.url(:thumb_header) ,class: 'user_image inline-block'
-    = link_to comment.user.name,user_path(comment.user) ,class: 'align-top'
-    span.comment-created-at = simple_time(comment.created_at)
-    - if current_user && current_user.id == comment.user.id
-      .text-right
-        = link_to '削除', spot_comment_path(spot, comment), method: :delete, data: { confirm: 'コメントを削除しますか？' }, remote: true
-    p= comment.content
-    hr class="my-0"
+      span.userHeader_img
+        = image_tag comment.user.image.url(:thumb_header) ,class: 'user_image inline-block'
+      = link_to comment.user.name,user_path(comment.user) ,class: 'align-top'
+      span.comment-created-at = simple_time(comment.created_at)
+      - if current_user && current_user.id == comment.user.id
+        .text-right
+          = link_to '削除', spot_comment_path(spot, comment), method: :delete, data: { confirm: 'コメントを削除しますか？' }, remote: true
+      p= comment.content
+      hr class="my-2"

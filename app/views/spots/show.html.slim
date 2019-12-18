@@ -1,7 +1,17 @@
 .container
-  h1 スポット詳細
+  h1.mb-3 スポット詳細
+  =link_to 'スポット一覧へ', spots_path, class: 'text-muted'
+  .d-flex.mt-4
+    .userHeader_img.align-self-center
+      = image_tag @spot.user.image.url(:thumb_header), class: 'user_image'
+    = link_to @spot.user.name,"/users/#{@spot.user.id}", class: 'text-muted inline-block align-self-center'
+    .inline-block.align-self-center.ml-4
+      |投稿日時:
+      = simple_time(@spot.created_at)
+
+
   .row
-    .col-md-1
+    .col-md-1.fixed-top.mt-5
       .inline-block id="like-#{@spot.id}"
         = render partial: 'likes/like', locals: { spot: @spot }
       .inline-block id="stock-#{@spot.id}"
@@ -9,8 +19,7 @@
       .inline-block id="comment-#{@spot.id}"
         = render partial: 'comments/comment_btn', locals: { spot: @spot }
     .col-md-11
-      .nav.justify-content-start
-        =link_to 'スポット一覧へ', spots_path, class: 'nav-link text-muted'
+      .nav.justify-content-end
         - if user_signed_in? && @spot.user.id == current_user.id
           =link_to '編集', edit_spot_path(@spot), class: 'nav-link text-muted'
           =link_to '削除', @spot, data: { confirm: "投稿の削除をします。よろしいですか？" }, method: :delete, class: 'nav-link text-muted'
@@ -20,13 +29,10 @@
             th= Spot.human_attribute_name(:title)
             td= @spot.title
           tr
-            th= Spot.human_attribute_name(:created_at)
-            td= simple_time(@spot.created_at)
-          tr
             th= Spot.human_attribute_name(:content)
             td== @spot.content
       hr class="my-0"
-      h4#1 コメント一覧
+      h4.mt-3#1 コメント一覧
       #comment-form
         =render 'comments/comment', spot: @spot
       - if current_user

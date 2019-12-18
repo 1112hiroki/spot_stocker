@@ -1,32 +1,50 @@
 .container
   h1
     | ユーザー情報
-  .userInfo_img
-    = image_tag @user.image.url(:thumb) ,class: 'user_image'
-    / = image_tag @user.image.url, class: 'user_image'
-  p
-    | 名前 :
-    = @user.name
-  p
-    | メールアドレス :
-    = @user.email
-  p
-    | 自己紹介 :
-    = @user.profile
-  p
-    | 年代 :
-    = @user.age
-  p
-    | 性別 :
-    = @user.sex
-  p
-    | 登録日 :
-    = simple_time(@user.created_at)
+  .row.mt-4
+    .col-4.text-center
+      div
+        .userInfo_img
+          = image_tag @user.image.url(:thumb) ,class: 'user_image'
+        h4.mt-2= @user.name
+      .row.mt-3.justify-content-center
+        .col-4
+          h5= @user.age
+        .col-4
+          h5= @user.sex
+      p
+      - if current_user && current_user.id == @user.id
+        .userAction_edit.userAction_common
+          = link_to '編集',edit_user_registration_path,class: 'btn btn-primary'
+    .col-8
+      .text-right 登録日: #{simple_time(@user.created_at)}
+      .h5 自己紹介 :
+      .profile-size.p-4
+        = @user.profile
+      .row.mt-5.text-center.justify-content-center
+        .col-5
+          h5 役に立ったされた数:　#{@likes_count}
+        .col-5
+          h5 全国ランキング:
+      .h5.mt-5 投稿スポット: #{@user.spots.count}件
+      table.table.table-hover
+        thead.thead-default
+          tr
+            th= Spot.human_attribute_name(:title)
+            / th= Spot.human_attribute_name(:content)
+            / th= Spot.human_attribute_name(:name)
+            / th= Spot.human_attribute_name(:sex)
+            / th= Spot.human_attribute_name(:age)
+            th= Spot.human_attribute_name(:created_at)
+        tbody
+          - @spots.each do |spot|
+            tr
+              td= link_to spot.title, spot_path(spot)
+              / td== spot.content
+              / td= link_to spot.user.name,"/users/#{spot.user.id}"
+              / td= spot.user.sex
+              / td= spot.user.age
+              td= simple_time(spot.created_at)
 
-
-  - if current_user
-    .userAction_edit.userAction_common
-      / = link_to(content_tag(:i, "", class: 'fas fa-edit fa-2x'), edit_user_registration_path)
-      / span
-      /   | 情報を編集
-      = link_to '編集',edit_user_registration_path,class: 'btn btn-primary'
+      .paginate
+        = paginate @spots
