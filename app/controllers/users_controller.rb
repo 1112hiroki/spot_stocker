@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    spots = Spot.where(user_id: @user.id)
+    @spots = Kaminari.paginate_array(spots).page(params[:page]).per(10)
+    @likes_count = Like.where(spot: @user.spots).count
   end
 
   private

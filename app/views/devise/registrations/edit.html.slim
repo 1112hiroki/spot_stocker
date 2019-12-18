@@ -25,10 +25,10 @@
       .form-group
         = f.label :sex
         br
-        = f.label '男：'
-        = f.radio_button :sex, :男
-        = f.label '　女：'
-        = f.radio_button :sex, :女
+        = f.label '男性：'
+        = f.radio_button :sex, :男性
+        = f.label '　女性：'
+        = f.radio_button :sex, :女性
       .form-group
         = f.label :age
         br
@@ -70,8 +70,8 @@
         = f.password_field :current_password, class: "form-control", placeholder: "パスワードを入力して更新ボタンを押す"
       .actions.text-center
         = f.submit "更新",class: "btn submitBtn"
-      .text-center
-        = button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当にアカウントを削除しますか?　取り消すことは出来ません。" }, method: :delete, class: "btn deleteBtn"
+    .text-center
+      = button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当にアカウントを削除しますか?　取り消すことは出来ません。" }, method: :delete, class: "btn deleteBtn"
       .text-center.m-3.border
         | 情報を変更せずに戻る場合はこちら
         br

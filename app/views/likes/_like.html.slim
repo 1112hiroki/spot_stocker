@@ -1,7 +1,7 @@
   .like
     .likes_count
       =spot.likes.count
-    - if spot.liked?(current_user)
+    - if spot.liked?(current_user && current_user.id != @spot.user.id)
       = form_with model: spot.likes.find_by(user_id: current_user.id), method: :delete do |f|
         = button_tag(class: "btn btn-liked btn-circle") do
           i.fas.fa-check
