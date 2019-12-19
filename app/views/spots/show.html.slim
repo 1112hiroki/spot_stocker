@@ -1,15 +1,13 @@
 .container
-  h1.mb-3 スポット詳細
-  =link_to 'スポット一覧へ', spots_path, class: 'text-muted'
-  .d-flex.mt-4
-    .userHeader_img.align-self-center
-      = image_tag @spot.user.image.url(:thumb_header), class: 'user_image'
-    = link_to @spot.user.name,"/users/#{@spot.user.id}", class: 'text-muted inline-block align-self-center'
-    .inline-block.align-self-center.ml-4
-      |投稿日時:
-      = simple_time(@spot.created_at)
-
+  h1.mb-4 スポット詳細
   .row
+    .col-6
+      =link_to 'スポット一覧へ', spots_path, class: 'text-muted'
+    .col-6.text-right
+      - if user_signed_in? && @spot.user.id == current_user.id
+        =link_to '編集', edit_spot_path(@spot), class: 'text-muted mr-5'
+        =link_to '削除', @spot, data: { confirm: "投稿の削除をします。よろしいですか？" }, method: :delete, class: 'text-muted'
+  .row.mt-3
     .col-1.fixed-top.mt-5
       .inline-block id="like-#{@spot.id}"
         = render partial: 'likes/like', locals: { spot: @spot }
@@ -17,13 +15,26 @@
         = render partial: 'stocks/stock', locals: { spot: @spot }
       .inline-block id="comment-#{@spot.id}"
         = render partial: 'comments/comment_btn', locals: { spot: @spot }
-    .col-11
-      .nav.justify-content-end
-        - if user_signed_in? && @spot.user.id == current_user.id
-          =link_to '編集', edit_spot_path(@spot), class: 'nav-link text-muted'
-          =link_to '削除', @spot, data: { confirm: "投稿の削除をします。よろしいですか？" }, method: :delete, class: 'nav-link text-muted'
-
-      h1.my-4= @spot.title
+    .col-12
+      .d-flex.mt-5
+        .userHeader_img.align-self-center
+          = image_tag @spot.user.image.url(:thumb_header), class: 'user_image'
+        .inline-block.align-self-center
+          = link_to @spot.user.name,"/users/#{@spot.user.id}", class: 'text-muted'
+        .inline-block.align-self-center.ml-4.text-right
+          |投稿日時:　
+          = simple_time(@spot.created_at)
+      .row.mt-4
+        .col-8
+          h1= @spot.title
+        .col-4.text-right
+          .div id="star-review-#{@spot.id}"
+      .row
+        .col-8
+          h6.text-muted= @spot.spot_name
+        .col-4.text-right.text-muted
+          |滞在時間(目安):
+          = @spot.stay_time
       p== @spot.content
 
       hr class="mt-5"
@@ -36,3 +47,15 @@
           = f.input :content, label: false, input_html: { class:'form-control', id:'tag'}
           .text-right.mt-3
             = f.submit 'コメント', class: 'btn btn-success mb-5'
+
+  javascript:
+    $("#star-review-#{@spot.id}").raty({
+      size     : 36,
+      starOff: '/assets/star-off.png',
+      starOn : '/assets/star-on.png',
+      starHalf: '/assets/star-half.png',
+      scoreName: 'spot[review]',
+      half: true,
+      readOnly: true,
+      score:  #{@spot.review}
+    });

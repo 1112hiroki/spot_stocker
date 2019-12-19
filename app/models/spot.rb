@@ -7,8 +7,12 @@ class Spot < ApplicationRecord
   has_many :like_users, through: :likes, source: :user
 
   validates :title, presence: true
-  default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
+  validates :spot_name, presence: true
+  validates :stay_time, presence: true
+  enum stay_time: { １時間以内: 1, １〜２時間: 2, ２〜３時間: 3, ３時間以上: 4}
+
+  default_scope -> { order(created_at: :desc) }
   has_rich_text :content
 
   # 現在ログインしているユーザーidを受け取り、記事をストックする

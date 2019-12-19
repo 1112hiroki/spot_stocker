@@ -10,9 +10,39 @@
       br
       = form.text_field :title, class: "form-control"
     .form-group
+      = form.label :spot_name
+      | 　
+      br
+      = form.text_field :spot_name, class: "form-control"
+    .form-group.field#star
+      = form.label :review
+      = form.hidden_field :review, id: "review_star"
+    .form-group
+      = form.label :stay_time
+      br
+      = form.label '1時間以内：'
+      = form.radio_button :stay_time, :１時間以内
+      = form.label '　　1〜2時間：'
+      = form.radio_button :stay_time, :１〜２時間
+      = form.label '　　2〜3時間：'
+      = form.radio_button :stay_time, :２〜３時間
+      = form.label '　　3時間以上：'
+      = form.radio_button :stay_time, :３時間以上
+    .form-group
       = form.label :content
       br
       = form.rich_text_area :content
     hr
     .form-label-group.col-md-6.mx-auto
       = form.submit "更新する", class: "btn btn-lg btn-warning  btn-block text-white"
+
+  javascript:
+    $('#star').raty({
+      size     : 36,
+      starOff: '/assets/star-off.png',
+      starOn : '/assets/star-on.png',
+      starHalf: '/assets/star-half.png',
+      scoreName: 'spot[review]',
+      half: true,
+      score:  #{@spot.review}
+    });
