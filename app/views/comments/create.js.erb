@@ -1,1 +1,3 @@
 $('#comment-form').html("<%= j (render 'comment', spot: @spot) %>");
+$('#comment-count').html("<%= j (render 'comment_btn', spot: @spot) %>");
+$("#tag").val("");
