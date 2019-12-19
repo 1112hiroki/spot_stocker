@@ -10,12 +10,15 @@ ja:
         sex: "性別"
         age: "年代"
       spot:
-        title: "タイトル"
+        title: "記事タイトル"
         content: "スポット詳細"
         name: "投稿ユーザー"
         sex: "性別"
         age: "年代"
+        spot_name: "スポット名称"
+        review: "スポット評価"
         created_at: "投稿日時"
+        stay_time: "滞在時間（目安）"
       comment:
         content: "コメントを投稿する"
     errors:

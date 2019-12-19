@@ -9,7 +9,7 @@ class SpotsController < ApplicationController
     spot = Spot.new(spot_params)
     spot.user = current_user
     spot.save!
-    redirect_to spots_url, notice: "登録完了"
+    redirect_to spots_url, notice: "スポットの投稿が完了しました"
   end
 
   def index
@@ -42,6 +42,6 @@ class SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:title, :content, :id)
+    params.require(:spot).permit(:title, :content, :id, :spot_name, :review, :stay_time)
   end
 end
