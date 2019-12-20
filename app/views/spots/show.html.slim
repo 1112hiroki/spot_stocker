@@ -36,10 +36,10 @@
           |滞在時間(目安):
           = @spot.stay_time
       .text-right
-        = @spot.prefecture_code
-        = @spot.address_city
-        = @spot.address_street
-        = @spot.address_building
+          span.ml-2= @spot.prefecture.name
+          span.ml-2= @spot.address_city
+          span.ml-2= @spot.address_street
+          span.ml-2= @spot.address_building
 
       p== @spot.content
 
