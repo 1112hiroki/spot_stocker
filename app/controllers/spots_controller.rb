@@ -39,9 +39,13 @@ class SpotsController < ApplicationController
     redirect_to spots_url, notice: "投稿を削除しました"
   end
 
+  def zipedit
+    params.require(:spot).permit(:postcode, :prefecture_name, :address_city, :address_street, :address_building)
+  end
+
   private
 
   def spot_params
-    params.require(:spot).permit(:title, :content, :id, :spot_name, :review, :stay_time)
+    params.require(:spot).permit(:title, :content, :id, :spot_name, :review, :stay_time, :postcode, :prefecture_code, :address_city, :address_street, :address_building)
   end
 end
