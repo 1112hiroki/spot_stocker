@@ -29,6 +29,32 @@
       = form.label '　　3時間以上：'
       = form.radio_button :stay_time, :３時間以上
     .form-group
+      = form.label '郵便番号'
+      |
+      br
+      = form.text_field :postcode
+    .form-group
+      = form.label '都道府県'
+      |
+      br
+      = form.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県'
+    .form-group
+      = form.label '市区町村'
+      |
+      br
+      = form.text_field :address_city
+    .form-group
+      = form.label '番地'
+      |
+      br
+      = form.text_field :address_street
+    .form-group
+      = form.label '建物名'
+      |
+      br
+      = form.text_field :address_building
+
+    .form-group
       = form.label :content
       br
       = form.rich_text_area :content

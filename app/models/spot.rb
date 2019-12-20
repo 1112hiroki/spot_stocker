@@ -11,9 +11,20 @@ class Spot < ApplicationRecord
   validates :spot_name, presence: true
   validates :stay_time, presence: true
   enum stay_time: { １時間以内: 1, １〜２時間: 2, ２〜３時間: 3, ３時間以上: 4}
-
   default_scope -> { order(created_at: :desc) }
   has_rich_text :content
+
+  # 住所自動入力に必要なコード
+  include JpPrefecture
+  jp_prefecture :prefecture_code
+
+  def prefecture_name
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+  end
+
+  def prefecture_name=(prefecture_name)
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  end
 
   # 現在ログインしているユーザーidを受け取り、記事をストックする
   def stock(user)
