@@ -16,14 +16,16 @@
       .inline-block id="comment-#{@spot.id}"
         = render partial: 'comments/comment_btn', locals: { spot: @spot }
     .col-12
-      .d-flex.mt-5
-        .userHeader_img.align-self-center
-          = image_tag @spot.user.image.url(:thumb_header), class: 'user_image'
-        .inline-block.align-self-center
-          = link_to @spot.user.name,"/users/#{@spot.user.id}", class: 'text-muted'
-        .inline-block.align-self-center.ml-4.text-right
-          |投稿日時:　
-          = simple_time(@spot.created_at)
+      .row
+        .col-4.d-flex
+          .userHeader_img
+            = image_tag @spot.user.image.url(:thumb_header), class: 'user_image'
+          .inline-block.align-self-center
+            = link_to @spot.user.name,"/users/#{@spot.user.id}", class: 'text-muted'
+        .col-8.d-flex.justify-content-end
+          .align-self-center.float-right.text-muted
+            |投稿日時:
+            = simple_time(@spot.created_at)
       .row.mt-4
         .col-8
           h1= @spot.title
