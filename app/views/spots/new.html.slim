@@ -1,9 +1,10 @@
 .container
   h1 新規投稿
-
+​
   .nav.justify-content-start
     =link_to 'スポット一覧へ', spots_path, class: 'nav-link text-muted'
-  = form_with model: @spot, local:true do |form|
+  = form_with model: @spot, local:true , class: 'h-adr' do |form|
+    = hidden_field_tag :country, "Japan", class: "p-country-name"
     .form-group
       = form.label :title
       | 　
@@ -28,33 +29,32 @@
       = form.radio_button :stay_time, :２〜３時間
       = form.label '　　3時間以上：'
       = form.radio_button :stay_time, :３時間以上
-    / .form-group
-    /   = form.label '郵便番号'
-    /   |
-    /   br
-    /   = form.text_field :postcode, maxlength:"7"
+    .form-group
+      = form.label '郵便番号'
+      |
+      br
+      = form.text_field :postcode, id: 'spot_postcode', class: 'p-postal-code'
     .form-group
       = form.label '都道府県'
       |
       br
-      = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, include_blank: '都道府県を選択して下さい'
-    .d-flex
-      .form-group.mr-4
-        = form.label '市区町村'
-        |
-        br
-        = form.text_field :address_city, class: "rounded"
-      .form-group.mr-4
-        = form.label '番地'
-        |
-        br
-        = form.text_field :address_street, class: "rounded"
-      .form-group
-        = form.label '建物名'
-        |
-        br
-        = form.text_field :address_building, class: "rounded"
-
+      = form.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県', class: 'p-region'
+    .form-group
+      = form.label '市区町村'
+      |
+      br
+      = form.text_field :address_city, class: 'p-locality'
+    .form-group
+      = form.label '番地'
+      |
+      br
+      = form.text_field :address_street, class: 'p-street-address'
+    .form-group
+      = form.label '建物名'
+      |
+      br
+      = form.text_field :address_building, class: 'p-extended-address'
+​
     .form-group
       = form.label :content
       br
@@ -62,7 +62,7 @@
     hr
     .form-label-group.col-md-6.mx-auto
       = form.submit "登録", class: "btn btn-lg btn-primary btn-block"
-
+​
   javascript:
     $('#star').raty({
       size     : 36,
