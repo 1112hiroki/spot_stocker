@@ -1,6 +1,5 @@
 .container
   h1 新規投稿
-​
   .nav.justify-content-start
     =link_to 'スポット一覧へ', spots_path, class: 'nav-link text-muted'
   = form_with model: @spot, local:true , class: 'h-adr' do |form|
@@ -54,7 +53,6 @@
       |
       br
       = form.text_field :address_building, class: 'p-extended-address'
-​
     .form-group
       = form.label :content
       br
@@ -62,7 +60,6 @@
     hr
     .form-label-group.col-md-6.mx-auto
       = form.submit "登録", class: "btn btn-lg btn-primary btn-block"
-​
   javascript:
     $('#star').raty({
       size     : 36,
