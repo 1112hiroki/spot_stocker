@@ -133,7 +133,7 @@ body {
 }
 
 // border
-.border {
+.border-info {
   margin-top: 2rem !important;
   padding-top: 2rem !important;
   border-top: 1px solid #aaa !important;
@@ -394,4 +394,40 @@ body {
   border: solid 1px #aaa;
   border-radius: 5px;
   background-color: #eee;
+}
+
+// spots/index
+
+.btn-newpost {
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  background: #F8B44E;
+  color: #fff;
+  text-align: center;
+  border: none;
+  margin-top: 15px;
+  transition: opacity .3s;
+  cursor: pointer;
+  &:hover {
+    opacity: .7;
+    color: #fff;
+  }
+}
+
+.btn-stocks {
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  background: #28A745;
+  color: #fff;
+  text-align: center;
+  border: none;
+  margin-top: 15px;
+  transition: opacity .3s;
+  cursor: pointer;
+  &:hover {
+    opacity: .7;
+    color: #fff;
+  }
 }

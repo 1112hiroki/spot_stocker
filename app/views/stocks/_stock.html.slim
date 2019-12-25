@@ -2,7 +2,7 @@
     - if spot.stocked?(current_user)
       = form_with model: spot.stocks.find_by(user_id: current_user.id), method: :delete do |f|
         = button_tag(class: "btn btn-success btn-circle") do
-          i.fas.fa-book-medical
+          i.fas.fa-book
     - else
       = form_with model: spot.stocks.build do |f|
         div

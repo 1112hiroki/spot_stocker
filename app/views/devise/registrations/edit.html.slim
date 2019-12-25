@@ -72,7 +72,7 @@
         = f.submit "更新",class: "btn submitBtn"
     .text-center
       = button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当にアカウントを削除しますか?　取り消すことは出来ません。" }, method: :delete, class: "btn deleteBtn"
-      .text-center.m-3.border
+      .text-center.m-3.border-info
         | 情報を変更せずに戻る場合はこちら
         br
         = link_to "編集を取り消し", :back
