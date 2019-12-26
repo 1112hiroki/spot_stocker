@@ -10,6 +10,10 @@ class Spot < ApplicationRecord
   validates :user_id, presence: true
   validates :spot_name, presence: true
   validates :stay_time, presence: true
+  validates :postcode, presence: true, format: {with:/\A\d{7}\z/,message: "に誤りがあります"}
+  validates :prefecture_code, presence: true
+  validates :content, presence: true
+
   enum stay_time: { １時間以内: 1, １〜２時間: 2, ２〜３時間: 3, ３時間以上: 4}
   default_scope -> { order(created_at: :desc) }
   has_rich_text :content

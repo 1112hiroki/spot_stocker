@@ -37,8 +37,8 @@
         .col-4.text-right.text-muted
           |滞在時間(目安):
           = @spot.stay_time
-      .text-right
-          span.ml-2= @spot.prefecture.name
+      .text-right.text-muted
+          span.ml-2= @spot.prefecture_code
           span.ml-2= @spot.address_city
           span.ml-2= @spot.address_street
           span.ml-2= @spot.address_building

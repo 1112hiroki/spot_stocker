@@ -4,6 +4,15 @@
     =link_to 'スポット一覧へ', spots_path, class: 'nav-link text-muted'
   = form_with model: @spot, local:true , class: 'h-adr' do |form|
     = hidden_field_tag :country, "Japan", class: "p-country-name"
+    - if @spot.errors.any?
+      h3
+        | 入力した内容にエラーが
+        = @spot.errors.count
+        | 件あります
+      ul
+        - @spot.errors.full_messages.each do |message|
+          li
+            = message
     .form-group
       = form.label :title
       | 　
@@ -32,17 +41,18 @@
       = form.label '郵便番号'
       |
       br
-      = form.text_field :postcode, id: 'spot_postcode', class: 'p-postal-code'
+      |〒 
+      = form.text_field :postcode, id: 'spot_postcode', class: 'p-postal-code', size: "7",maxlength: "7"
     .form-group
       = form.label '都道府県'
       |
       br
-      = form.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県', class: 'p-region'
+      = form.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県', class: 'p-region', readonly: true
     .form-group
       = form.label '市区町村'
       |
       br
-      = form.text_field :address_city, class: 'p-locality'
+      = form.text_field :address_city, class: 'p-locality', readonly: true
     .form-group
       = form.label '番地'
       |
