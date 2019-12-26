@@ -12,13 +12,15 @@ ja:
       spot:
         title: "記事タイトル"
         content: "スポット詳細"
-        name: "投稿ユーザー"
-        sex: "性別"
-        age: "年代"
         spot_name: "スポット名称"
         review: "スポット評価"
         created_at: "投稿日時"
         stay_time: "滞在時間（目安）"
+        postcode: "郵便番号"
+        prefecture_code: "都道府県"
+        address_city: "市区町村"
+        address_street: "番地"
+        address_building: "建物名"
       comment:
         content: "コメントを投稿する"
     errors:

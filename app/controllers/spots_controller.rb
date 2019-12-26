@@ -6,10 +6,13 @@ class SpotsController < ApplicationController
   end
 
   def create
-    spot = Spot.new(spot_params)
-    spot.user = current_user
-    spot.save!
-    redirect_to spots_url, notice: "スポットの投稿が完了しました"
+    @spot = Spot.new(spot_params)
+    @spot.user = current_user
+    if @spot.save
+      redirect_to spots_url, notice: "スポットの投稿が完了しました"
+    else
+      render action: :new
+    end
   end
 
   def index
