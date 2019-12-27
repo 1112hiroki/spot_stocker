@@ -56,6 +56,9 @@
               |投稿日時:
               = simple_time(spot.created_at)
         .row
+          == spot.content.body.attachables.grep(ActiveStorage::Blob)
+          / =image_tag ActiveStorage::Blob.service.path_for(Spot.first.content.embeds.first.key)
+        .row
           .col-12.h4
             = link_to spot.title, spot_path(spot), class: "text-dark"
         .row
