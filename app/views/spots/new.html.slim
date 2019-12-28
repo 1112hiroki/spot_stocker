@@ -5,7 +5,7 @@
   = form_with model: @spot, local:true , class: 'h-adr' do |form|
     = hidden_field_tag :country, "Japan", class: "p-country-name"
     - if @spot.errors.any?
-      h3
+      h3.text-danger
         | 入力した内容にエラーが
         = @spot.errors.count
         | 件あります

@@ -5,8 +5,13 @@
       =link_to 'スポット一覧へ', spots_path, class: 'text-muted'
     .col-6.text-right
       - if user_signed_in? && @spot.user.id == current_user.id
-        =link_to '編集', edit_spot_path(@spot), class: 'text-muted mr-5'
-        =link_to '削除', @spot, data: { confirm: "投稿の削除をします。よろしいですか？" }, method: :delete, class: 'text-muted'
+        =link_to edit_spot_path(@spot), class: 'text-muted mr-5' do
+          i.fas.fa-edit.mt-2.mr-1
+          span 編集
+        =link_to @spot, data: { confirm: "投稿の削除をします。よろしいですか？" }, method: :delete, class: 'text-muted'
+          i.fas.fa-trash-alt.mt-2.mr-1
+          span 削除
+
   .row.mt-3
     .col-1.fixed-top.mt-5
       .inline-block id="like-#{@spot.id}"
