@@ -15,7 +15,7 @@ ja:
         spot_name: "スポット名称"
         review: "スポット評価"
         created_at: "投稿日時"
-        stay_time: "滞在時間（目安）"
+        stay_time: "滞在時間(目安)"
         postcode: "郵便番号"
         prefecture_code: "都道府県"
         address_city: "市区町村"

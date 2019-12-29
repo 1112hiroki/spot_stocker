@@ -83,6 +83,7 @@ GEM
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
     childprocess (3.0.0)
+    coderay (1.1.2)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 5.2.0)
@@ -160,6 +161,11 @@ GEM
     polyamorous (2.3.0)
       activerecord (>= 5.0)
     popper_js (1.14.5)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (4.0.1)
     puma (4.3.1)
       nio4r (~> 2.0)
@@ -295,6 +301,8 @@ DEPENDENCIES
   kaminari
   listen (>= 3.0.5, < 3.2)
   mini_magick
+  pry
+  pry-rails
   puma (~> 4.1)
   rails (~> 6.0.1)
   ransack
