@@ -7,9 +7,11 @@
       = devise_error_messages!
       .form-group
         = f.label :name
+        .badge.badge-danger.ml-2 必須
         = f.text_field :name, class: "form-control", placeholder: "名前を入力してください"
       .form-group
         = f.label :email
+        .badge.badge-danger.ml-2 必須
         = f.email_field :email, class: "form-control", placeholder: "emailを入力してください", autocomplete: "email"
       .form-group
         = f.label :profile
@@ -19,6 +21,7 @@
         = f.text_area :profile, class: "form-control", placeholder: "プロフィールを入力してください"
       .form-group
         = f.label :sex
+        .badge.badge-danger.ml-2 必須
         br
         = f.label '男性：'
         = f.radio_button :sex, :男性
@@ -26,6 +29,7 @@
         = f.radio_button :sex, :女性
       .form-group
         = f.label :age
+        .badge.badge-danger.ml-2 必須
         br
         = f.label '10代：'
         = f.radio_button :age, :１０代
@@ -49,6 +53,7 @@
             | 画像をアップロード済み
       .form-group
         = f.label :password
+        .badge.badge-danger.ml-2 必須
         - if @minimum_password_length
           em
             | (
@@ -58,6 +63,7 @@
         = f.password_field :password, class: "form-control", placeholder:"パスワードを入力してください", autocomplete: "off"
       .form-group
         = f.label :password_confirmation
+        .badge.badge-danger.ml-2 必須
         = f.password_field :password_confirmation, class:"form-control", placeholder: "パスワードを再度入力してください", autocomplete: "off"
       .text-center
         = f.submit "アカウントを作成", class: "btn submitBtn"

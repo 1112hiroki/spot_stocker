@@ -15,20 +15,23 @@
             = message
     .form-group
       = form.label :title
+      .badge.badge-danger.ml-2 必須
       | 　
       br
-      = form.text_field :title, class: "form-control"
+      = form.text_field :title, class: "form-control", placeholder: "タイトルを入力してください"
     .form-group
       = form.label :spot_name
+      .badge.badge-danger.ml-2 必須
       | 　
       br
-      = form.text_field :spot_name, class: "form-control"
+      = form.text_field :spot_name, class: "form-control", placeholder: "スポット名を入力してください"
     .form-group.field#star
       = form.label :review
+      .badge.badge-danger.mx-2 必須
       = form.hidden_field :review, id: "review_star"
     .form-group
       = form.label :stay_time
-      br
+      .badge.badge-danger.mx-2 必須
       = form.label '1時間以内：'
       = form.radio_button :stay_time, :１時間以内
       = form.label '　　1〜2時間：'
@@ -39,20 +42,21 @@
       = form.radio_button :stay_time, :３時間以上
     .form-group
       = form.label '郵便番号'
+      .badge.badge-danger.ml-2 必須
       |
       br
       |〒 
-      = form.text_field :postcode, id: 'spot_postcode', class: 'p-postal-code', size: "7",maxlength: "7"
+      = form.text_field :postcode, id: 'spot_postcode', class: 'p-postal-code', size: "8",maxlength: "8"
     .form-group
       = form.label '都道府県'
       |
       br
-      = form.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県', class: 'p-region', readonly: true
+      = form.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県', class: 'p-region', placeholder: "自動入力されます", readonly: true
     .form-group
       = form.label '市区町村'
       |
       br
-      = form.text_field :address_city, class: 'p-locality', readonly: true
+      = form.text_field :address_city, class: 'p-locality', placeholder: "自動入力されます", readonly: true
     .form-group
       = form.label '番地'
       |
@@ -65,6 +69,7 @@
       = form.text_field :address_building, class: 'p-extended-address'
     .form-group
       = form.label :content
+      .badge.badge-danger.ml-2 必須
       br
       = form.rich_text_area :content
     hr

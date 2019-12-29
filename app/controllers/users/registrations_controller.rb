@@ -13,7 +13,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    flash[:notice] = "ようこそ！Spotストッカーへ"
   end
 
   # GET /resource/edit
@@ -24,7 +23,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     super
-    flash[:notice] = "登録情報を変更しました。"
   end
 
   # DELETE /resource
