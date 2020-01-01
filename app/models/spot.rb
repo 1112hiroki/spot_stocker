@@ -1,5 +1,6 @@
 class Spot < ApplicationRecord
   belongs_to :user
+  belongs_to :prefecture
   has_many :comments, dependent: :destroy
   has_many :stocks, dependent: :destroy
   has_many :stock_users, through: :stocks, source: :user
@@ -58,5 +59,10 @@ class Spot < ApplicationRecord
   # 記事がライク済みであるかを判定。取得済みであれば true を返す
   def liked?(user)
     like_users.include?(user)
+  end
+
+  ransacker :likes_count do
+    query = '(SELECT COUNT(likes.spot_id) FROM likes where likes.spot_id = spots.id GROUP BY likes.spot_id)'
+    Arel.sql(query)
   end
 end

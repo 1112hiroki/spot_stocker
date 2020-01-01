@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   resources :spots do
     resources :comments, only: %i[create update destroy]
   end
-  resources :stocks, only: %i(index create destroy)
-  resources :likes,  only: %i(index create destroy)
+  resources :spots do
+    collection do
+      match 'search' => 'spots#index', via: [:get, :post]
+    end
+  end
+  resources :stocks,      only: %i(index create destroy)
+  resources :likes,       only: %i(index create destroy)
+  resources :prefectures, only: %i(index)
 end

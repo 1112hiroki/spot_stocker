@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_26_132741) do
+ActiveRecord::Schema.define(version: 2019_12_31_075227) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -61,6 +61,12 @@ ActiveRecord::Schema.define(version: 2019_12_26_132741) do
     t.index ["spot_id"], name: "index_likes_on_spot_id"
     t.index ["user_id", "spot_id"], name: "index_likes_on_user_id_and_spot_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "prefectures", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "spots", force: :cascade do |t|
