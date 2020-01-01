@@ -16,8 +16,17 @@ class SpotsController < ApplicationController
   end
 
   def index
-    @q = Spot.ransack(params[:q])
-    @spots = @q.result(distinct: true).page(params[:page]).per(10)
+    if params[:q].present?
+    # 検索フォームからアクセスした時の処理
+      @search = Spot.ransack(search_params)
+      @spots = @search.result(distinct: true).page(params[:page]).per(10)
+    else
+    # 検索フォーム以外からアクセスした時の処理
+      params[:q] = { sorts: 'id desc'}
+      @search = Spot.ransack()
+      @q = Spot.ransack(params[:q])
+      @spots = @q.result(distinct: true).page(params[:page]).per(10)
+    end
   end
 
   def show
@@ -49,6 +58,11 @@ class SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:title, :content, :id, :spot_name, :review, :stay_time, :postcode, :prefecture_code, :address_city, :address_street, :address_building)
+    params.require(:spot).permit(:title, :content, :id, :spot_name, :review, :stay_time, :postcode, :prefecture_code, :address_city, :address_street, :address_building, :prefecture_id)
+  end
+
+  def search_params
+    params.require(:q).permit(:sorts,:title, :content, :id, :spot_name, :review, :stay_time, :postcode, :prefecture_code, :address_city, :address_street, :address_building, :prefecture_id)
+    # 他のパラメーターもここに入れる
   end
 end

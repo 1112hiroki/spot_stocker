@@ -1,13 +1,15 @@
 .container
   h1 スポット一覧
   div
-    = search_form_for @q do |f|
+    = search_form_for @search do |f|
+
+    = search_form_for @search, url: search_spots_path ,html: { method: :post } do |f|
       .form-group.row
         = f.label :spot_name_cont, 'スポット名称', class:'col-form-label'
-        .d-flex.ml-3
+        .d-flex.mx-3
           = f.search_field :spot_name_cont, class:'form-control'
           = f.submit class:'btn btn-primary'
-        =sort_link(@q, :review)
+        = f.select( :sorts, { '投稿日時(新しい)順': 'id desc', '投稿日時(古い)順': 'id asc', 'いいね!の多い順': 'likes_count desc', 'レビュー評価が高い順': 'review desc'} , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'})
   .row
     .col-2
       / .fixed-top.mt-5.ml-5
