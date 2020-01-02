@@ -1,7 +1,9 @@
-.container
+.container.mb-5
   h1 投稿の編集
-  .nav.justify-content-start
-    =link_to 'スポット一覧へ', spots_path, class: 'nav-link text-muted'
+  .nav.justify-content-start.my-4
+    =link_to spot_path(@spot), class: 'text-muted' do
+      i.fas.fa-map-marked-alt.mt-2.mr-1
+      spna 詳細へ戻る
   = form_with model: @spot, local:true , class: 'h-adr' do |form|
     = hidden_field_tag :country, "Japan", class: "p-country-name"
     - if @spot.errors.any?
@@ -13,63 +15,82 @@
         - @spot.errors.full_messages.each do |message|
           li
             = message
-    .form-group
-      = form.label :title
-      .badge.badge-danger.ml-2 必須
-      | 　
-      br
-      = form.text_field :title, class: "form-control", placeholder: "タイトルを入力してください"
-    .form-group
-      = form.label :spot_name
-      .badge.badge-danger.ml-2 必須
-      | 　
-      br
-      = form.text_field :spot_name, class: "form-control", placeholder: "スポット名を入力してください"
-    .form-group.field#star
-      = form.label :review
-      .badge.badge-danger.mx-2 必須
-      = form.hidden_field :review, id: "review_star"
-    .form-group
-      = form.label :stay_time
-      .badge.badge-danger.mx-2 必須
-      br
-      = form.label '1時間以内：'
-      = form.radio_button :stay_time, :１時間以内
-      = form.label '　　1〜2時間：'
-      = form.radio_button :stay_time, :１〜２時間
-      = form.label '　　2〜3時間：'
-      = form.radio_button :stay_time, :２〜３時間
-      = form.label '　　3時間以上：'
-      = form.radio_button :stay_time, :３時間以上
-    .form-group
-      = form.label '郵便番号'
-      .badge.badge-danger.ml-2 必須
-      |
-      br
-      |〒 
-      = form.text_field :postcode, id: 'spot_postcode', class: 'p-postal-code', size: "8",maxlength: "8"
-    .row
-      .form-group.col-2
-        = form.label '都道府県'
-        |
-        br
-        = form.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県', class: 'p-region', placeholder: "自動入力されます", readonly: true
-      .form-group.col-2
-        = form.label '市区町村'
-        |
-        br
-        = form.text_field :address_city, class: 'p-locality', placeholder: "自動入力されます", readonly: true
-    .row
-      .form-group.col-2
-        = form.label '番地'
-        |
-        br
-        = form.text_field :address_street, class: 'p-street-address'
-      .form-group.col-2
-        = form.label '建物名'
-        |
-        br
-        = form.text_field :address_building, class: 'p-extended-address'
+    .row.my-4
+      .col-7
+        .form-group
+          = form.label :title
+          .badge.badge-danger.ml-2 必須
+          | 　
+          br
+          = form.text_field :title, class: "form-control", placeholder: "タイトルを入力してください"
+        .form-group
+          = form.label :spot_name
+          .badge.badge-danger.ml-2 必須
+          | 　
+          br
+          = form.text_field :spot_name, class: "form-control", placeholder: "スポット名を入力してください"
+        .form-group.field#star
+          = form.label :review
+          .badge.badge-danger.mx-2 必須
+          = form.hidden_field :review, id: "review_star"
+        .form-group
+          = form.label :stay_time
+          .badge.badge-danger.mx-2 必須
+          br
+          = form.label '1時間以内：'
+          = form.radio_button :stay_time, :１時間以内
+          = form.label '　　1〜2時間：'
+          = form.radio_button :stay_time, :１〜２時間
+          = form.label '　　2〜3時間：'
+          = form.radio_button :stay_time, :２〜３時間
+          = form.label '　　3時間以上：'
+          = form.radio_button :stay_time, :３時間以上
+        .form-group.mt-4
+          = form.label '郵便番号'
+          .badge.badge-danger.ml-2 必須
+          |
+          br
+          |〒
+          = form.text_field :postcode, id: 'spot_postcode', class: 'p-postal-code', size: "7", maxlength: "7", placeholder: "1230000"
+          span.text-muted.small  数字のみ7桁 (ハイフン無し)
+        .row
+          .form-group.col
+            = form.label '都道府県'
+            |
+            br
+            = form.collection_select :prefecture_name, JpPrefecture::Prefecture.all, :name, :name, {include_blank: "自動選択されます"}, {class: 'p-region'}
+          .form-group.col
+            = form.label '市区町村'
+            |
+            br
+            = form.text_field :address_city, class: 'p-locality w-100', placeholder: "自動入力されます", readonly: true
+        .row
+          .form-group.col
+            = form.label '以降の住所'
+            .badge.badge-success.ml-2 任意
+            |
+            br
+            = form.text_field :address_street, class: 'p-street-address w-100'
+          .form-group.col
+            = form.label '建物名'
+            .badge.badge-success.ml-2 任意
+            |
+            br
+            = form.text_field :address_building, class: 'p-extended-address w-100'
+      .col-5
+        .form-group
+          | サムネイル画像
+          .badge.badge-success.ml-2 任意
+          br
+          span.text-muted.small  何も指定しない場合は、下記の画像が適用されます。
+          label.ProfileImg[for="file_photo"]
+            .ProfileImg_description サムネイルをアップロード
+            i.fas.fa-camera.fa-3x
+            = form.file_field :thumbnail, id: "file_photo"
+          #userImgPreview.userImgPreview
+            img#thumbnail.userImgPreview_content[accept="thumbnail/*" src=""]
+            p.userImgPreview_text
+              | 画像をアップロード済み
     .form-group
       = form.label :content
       .badge.badge-danger.ml-2 必須

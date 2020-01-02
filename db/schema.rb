@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_31_075227) do
+ActiveRecord::Schema.define(version: 2020_01_02_135424) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -78,10 +78,11 @@ ActiveRecord::Schema.define(version: 2019_12_31_075227) do
     t.float "review"
     t.integer "stay_time"
     t.integer "postcode"
-    t.string "prefecture_code"
+    t.integer "prefecture_code"
     t.string "address_city"
     t.string "address_street"
     t.string "address_building"
+    t.string "thumbnail"
     t.index ["user_id"], name: "index_spots_on_user_id"
   end
 

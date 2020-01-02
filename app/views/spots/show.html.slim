@@ -1,8 +1,10 @@
-.container
-  h1.mb-4 スポット詳細
-  .row
+.container.mb-5
+  h1 スポット詳細
+  .row.my-4
     .col-6
-      =link_to 'スポット一覧へ', spots_path, class: 'text-muted'
+      =link_to :back, class: 'text-muted' do
+        i.fas.fa-map-marked-alt.mt-2.mr-1
+        spna スポット一覧へ戻る
     .col-6.text-right
       - if user_signed_in? && @spot.user.id == current_user.id
         =link_to edit_spot_path(@spot), class: 'text-muted mr-5' do
