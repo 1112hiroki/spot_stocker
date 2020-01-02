@@ -39,12 +39,15 @@
         .col-4.text-right
           .div id="star-review-#{@spot.id}"
       .row
-        .col-8
-          h6.text-muted= @spot.spot_name
+        .col-8.d-flex.text-muted
+          .i.fas.fa-map-marker-alt.align-self-center.mr-1
+          . =@spot.spot_name
         .col-4.text-right.text-muted
+          .i.far.fa-clock.align-self-center.mr-1
           |滞在時間(目安):
           = @spot.stay_time
       .text-right.text-muted
+          .i.fas.fa-map-signs.align-self-center.mr-1
           span.ml-2= @spot.prefecture_code
           span.ml-2= @spot.address_city
           span.ml-2= @spot.address_street
