@@ -18,22 +18,26 @@
     .row.my-4
       .col-7
         .form-group
+          .i.fas.fa-pen-fancy.align-self-center.mr-1
           = form.label :title
           .badge.badge-danger.ml-2 必須
           | 　
           br
           = form.text_field :title, class: "form-control", placeholder: "タイトルを入力してください"
         .form-group
+          .i.fas.fa-map-marker-alt.align-self-center.mr-1
           = form.label :spot_name
           .badge.badge-danger.ml-2 必須
           | 　
           br
           = form.text_field :spot_name, class: "form-control", placeholder: "スポット名を入力してください"
         .form-group.field#star
+          .i.fab.fa-gratipay.align-self-center.mr-1
           = form.label :review
           .badge.badge-danger.mx-2 必須
           = form.hidden_field :review, id: "review_star"
         .form-group
+          .i.far.fa-clock.align-self-center.mr-1
           = form.label :stay_time
           .badge.badge-danger.mx-2 必須
           br
@@ -46,6 +50,7 @@
           = form.label '　　3時間以上：'
           = form.radio_button :stay_time, :３時間以上
         .form-group.mt-4
+          .i.fas.fa-map-signs.align-self-center.mr-1
           = form.label '郵便番号'
           .badge.badge-danger.ml-2 必須
           |
@@ -79,6 +84,7 @@
             = form.text_field :address_building, class: 'p-extended-address w-100'
       .col-5
         .form-group
+          .i.far.fa-image.align-self-center.mr-1
           | サムネイル画像
           .badge.badge-success.ml-2 任意
           br
@@ -93,6 +99,7 @@
               | 画像をアップロード済み
 
     .form-group
+      .i.fas.fa-book-open.align-self-center.mr-1
       = form.label :content
       .badge.badge-danger.ml-2 必須
       br
