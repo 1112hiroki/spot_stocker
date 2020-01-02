@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :spots do
     resources :comments, only: %i[create update destroy]
   end
+
   resources :spots do
     collection do
       match 'search' => 'spots#index', via: [:get, :post]

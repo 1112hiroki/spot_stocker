@@ -23,10 +23,10 @@
         = @user.profile
       .row.mt-5.text-center.justify-content-center
         .col-5
-          h5 役に立ったされた数:　#{@likes_count}
+          h5 いいね！された数:　#{@likes_count}回
         .col-5
-          h5 全国ランキング:
-      .h5.mt-5 投稿スポット: #{@user.spots.count}件
+          h5 いいねランキング: #{}
+      .h5.mt-5 投稿した記事の数: #{@user.spots.count}件
       table.table.table-hover
         thead.thead-default
           tr

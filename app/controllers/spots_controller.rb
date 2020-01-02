@@ -16,9 +16,18 @@ class SpotsController < ApplicationController
   end
 
   def index
+    @spot_count = Spot.where(user_id: current_user).count
+    @likes_count = Like.where(spot: current_user.spots).count
+  # ref https://qiita.com/MitsuguSueyoshi/items/18fa5e49a27e727f00b4
+    # @ranking = Spot.find(Like.group(:spot_id).order('count(spot_id) desc').pluck(:spot_id))
+    # spot_like_count = Spot.joins(:likes).group(:spot_id).count
+  # ref https://qiita.com/tomoharutt/items/488beb4983b12484bbb6
+    # spot_liked_ids = Hash[spot_like_count.sort_by{ |_, v| -v }].keys
+    # @ranking = Spot.where(id: spot_liked_ids)
+    # @ranking = Spot.joins(:)
     if params[:q].present?
     # 検索フォームからアクセスした時の処理
-      @search = Spot.ransack(search_params)
+      @search = Spot.ransack(params[:q])
       @spots = @search.result(distinct: true).page(params[:page]).per(10)
     else
     # 検索フォーム以外からアクセスした時の処理
@@ -40,9 +49,12 @@ class SpotsController < ApplicationController
   end
 
   def update
-    spot = Spot.find(params[:id])
-    spot.update!(spot_params)
-    redirect_to spots_url, notice: "投稿を更新しました"
+    @spot = Spot.find(params[:id])
+    if @spot.update(spot_params)
+      redirect_to spots_url, notice: "投稿を更新しました"
+    else
+      render action: :edit
+    end
   end
 
   def destroy
@@ -58,11 +70,7 @@ class SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:title, :content, :id, :spot_name, :review, :stay_time, :postcode, :prefecture_code, :address_city, :address_street, :address_building, :prefecture_id)
+    params.require(:spot).permit(:title, :content, :id, :spot_name, :review, :stay_time, :postcode, :prefecture_code, :address_city, :address_street, :address_building, :prefecture_id, :thumbnail)
   end
 
-  def search_params
-    params.require(:q).permit(:sorts,:title, :content, :id, :spot_name, :review, :stay_time, :postcode, :prefecture_code, :address_city, :address_street, :address_building, :prefecture_id)
-    # 他のパラメーターもここに入れる
-  end
 end
