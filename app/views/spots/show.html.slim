@@ -82,7 +82,11 @@
         var test = {lat: #{@spot.latitude}, lng: #{@spot.longitude}};
         var map = new google.maps.Map(document.getElementById('map'), {
           center: test,
-          zoom: 13
+          mapTypeControl: false, //マップタイプ コントロール
+          fullscreenControl: true, //全画面表示コントロール
+          streetViewControl: false, //ストリートビュー コントロール
+          zoomControl: true, //ズーム コントロール
+          zoom: 13,
         });
         var transitLayer = new google.maps.TransitLayer();
         transitLayer.setMap(map);
@@ -93,13 +97,15 @@
         var marker = new google.maps.Marker({
             position:test,
             map: map,
-            title: contentString
+            title: contentString,
+            icon: "https://maps.google.com/mapfiles/ms/micons/orange-dot.png",
+            animation: google.maps.Animation.DROP,
         });
         marker.addListener('click', function() {
             infowindow.open(map, marker);
         });
     }
-  script async="" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGqJ63nGBqZSrd5WXNNZ00w8uvRkryTqo&callback=initMap"
+  script async="" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_KEY']}&callback=initMap"
 
   javascript:
     $("#star-review-#{@spot.id}").raty({
