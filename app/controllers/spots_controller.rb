@@ -15,6 +15,14 @@ class SpotsController < ApplicationController
     end
   end
 
+  def prefecture_name
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+  end
+
+  def prefecture_name=(prefecture_name)
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  end
+
   def index
     if current_user
       @spot_count = Spot.where(user_id: current_user).count
@@ -69,10 +77,19 @@ class SpotsController < ApplicationController
     params.require(:spot).permit(:postcode, :prefecture_name, :address_city, :address_street, :address_building)
   end
 
+  def map
+    # respond_to以下の記述によって、
+    # remote: trueのアクセスに対して、
+    # map.js.erbが変えるようになります。
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def spot_params
-    params.require(:spot).permit(:title, :content, :id, :spot_name, :review, :stay_time, :postcode, :prefecture_code, :address_city, :address_street, :address_building, :prefecture_id, :thumbnail)
+    params.require(:spot).permit(:title, :content, :id, :spot_name, :review, :stay_time, :postcode, :prefecture_name, :address_city, :address_street, :address_building, :prefecture_id, :thumbnail)
   end
 
 end

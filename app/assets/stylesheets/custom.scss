@@ -586,3 +586,18 @@ body {
   .hukuoka-img{
     background-image: url("/images/hukuoka.jpg");
   }
+
+
+  .fa-map-marker-alt{
+    margin: 0 2px;
+  }
+
+  .border-top{
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 35px;
+  }
+
+  #map{
+    height: 250px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }

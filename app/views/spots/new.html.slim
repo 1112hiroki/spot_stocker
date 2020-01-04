@@ -63,7 +63,7 @@
             = form.label '都道府県'
             |
             br
-            = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, {include_blank: "自動選択されます"}, {class: 'p-region'}
+            = form.collection_select :prefecture_name,  JpPrefecture::Prefecture.all, :name, :name, {include_blank: "自動選択されます"}, {class: 'p-region'}
           .form-group.col
             = form.label '市区町村'
             |

@@ -24,37 +24,41 @@
         = render partial: 'comments/comment_btn', locals: { spot: @spot }
     .col-12
       .row
-        .col-4.d-flex
-          .userHeader_img
-            = image_tag @spot.user.image.url(:thumb_header), class: 'user_image'
-          .inline-block.align-self-center
-            = link_to @spot.user.name,"/users/#{@spot.user.id}", class: 'text-muted'
-        .col-8.d-flex.justify-content-end
-          .align-self-center.float-right.text-muted
-            |投稿日時:
-            = simple_time(@spot.created_at)
-      .row.mt-4
-        .col-8
-          h1= @spot.title
-        .col-4.text-right
-          .div id="star-review-#{@spot.id}"
-      .row
-        .col-8.d-flex.text-muted
-          .i.fas.fa-map-marker-alt.align-self-center.mr-1
-          . =@spot.spot_name
-        .col-4.text-right.text-muted
-          .i.far.fa-clock.align-self-center.mr-1
-          |滞在時間(目安):
-          = @spot.stay_time
-      .text-right.text-muted
-          .i.fas.fa-map-signs.align-self-center.mr-1
-          span.ml-2= @spot.prefecture_code
-          span.ml-2= @spot.address_city
-          span.ml-2= @spot.address_street
-          span.ml-2= @spot.address_building
-
-      p== @spot.content
-
+        .col-7
+          .row
+            .col-4.d-flex
+              .userHeader_img
+                = image_tag @spot.user.image.url(:thumb_header), class: 'user_image'
+              .inline-block.align-self-center
+                = link_to @spot.user.name,"/users/#{@spot.user.id}", class: 'text-muted'
+            .col-8.d-flex.justify-content-end
+              .align-self-center.float-right.text-muted
+                |投稿日時:
+                = simple_time(@spot.created_at)
+          .row.my-4
+              h1.col= @spot.title
+          .row
+            .col
+              .align-self-center id="star-review-#{@spot.id}"
+          .row.mt-1
+            .col.d-flex.text-muted
+              .fas.fa-map-marker-alt.align-self-center
+              .ml-1 =@spot.spot_name
+          .row.mt-1
+            .col.text-muted
+              .fas.fa-map-signs.align-self-center.mr-1
+              span= @spot.prefecture&.name
+              span.ml-2= @spot.address_city
+              span.ml-2= @spot.address_street
+              span.ml-2= @spot.address_building
+          .row.mt-1
+            .col.text-muted
+              .i.far.fa-clock.align-self-center.mr-1
+              |滞在時間(目安):
+              = @spot.stay_time
+        .col-5
+          #map
+      .border-top== @spot.content
       hr class="mt-5"
       h4.mt-3#1 コメント一覧
       #comment-form
@@ -65,6 +69,37 @@
           = f.input :content, label: false, input_html: { class:'form-control', id:'tag'}
           .text-right.mt-3
             = f.submit 'コメント', class: 'btn btn-success mb-5'
+  / javascript:
+  /   function initMap(){
+  /     let map = new google.maps.Map(document.getElementById('map'), {
+  /     center: {lat: -34.397, lng: 150.644},
+  /     zoom: 9
+  /     });
+  /   }
+
+  javascript:
+    function initMap() {
+        var test = {lat: #{@spot.latitude}, lng: #{@spot.longitude}};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: test,
+          zoom: 13
+        });
+        var transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(map);
+        var contentString = '#{@spot.spot_name}';
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        var marker = new google.maps.Marker({
+            position:test,
+            map: map,
+            title: contentString
+        });
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+    }
+  script async="" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGqJ63nGBqZSrd5WXNNZ00w8uvRkryTqo&callback=initMap"
 
   javascript:
     $("#star-review-#{@spot.id}").raty({

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_02_135424) do
+ActiveRecord::Schema.define(version: 2020_01_04_075547) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 2020_01_02_135424) do
     t.string "address_street"
     t.string "address_building"
     t.string "thumbnail"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_spots_on_user_id"
   end
 
