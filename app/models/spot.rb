@@ -1,5 +1,7 @@
 class Spot < ApplicationRecord
   belongs_to :user
+  geocoded_by :address
+  after_validation :geocode
   # belongs_to :prefecture
   has_many :comments, dependent: :destroy
   has_many :stocks, dependent: :destroy
@@ -12,7 +14,6 @@ class Spot < ApplicationRecord
   validates :spot_name, presence: true
   validates :stay_time, presence: true
   validates :postcode, presence: true, format: {with:/\A\d{7}\z/,message: "に誤りがあります"}
-  # ①ビフォアバリデーションで変換する　文字列　→　都道府県のID　へ変換する　（カラムが別に必要になるかも知れない、accrアクセサ　東京都→preftcture_name→ビフォアバリデーション→preftcture_code
   validates :prefecture_code, presence: true
 
   validates :content, presence: true
@@ -21,6 +22,11 @@ class Spot < ApplicationRecord
   enum stay_time: { １時間以内: 1, １〜２時間: 2, ２〜３時間: 3, ３時間以上: 4}
   default_scope -> { order(created_at: :desc) }
   has_rich_text :content
+
+  # geocoderのメソッド
+  def address
+    [address_city,address_street].compact.join(',')
+  end
 
   # 住所自動入力に必要なコード
   include JpPrefecture

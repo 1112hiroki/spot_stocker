@@ -77,6 +77,15 @@ class SpotsController < ApplicationController
     params.require(:spot).permit(:postcode, :prefecture_name, :address_city, :address_street, :address_building)
   end
 
+  def map
+    # respond_to以下の記述によって、
+    # remote: trueのアクセスに対して、
+    # map.js.erbが変えるようになります。
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def spot_params

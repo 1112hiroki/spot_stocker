@@ -51,9 +51,6 @@
             .inline-block.align-self-center
               = link_to spot.user.name,"/users/#{spot.user.id}", class: 'text-muted'
           .col-8.d-flex.justify-content-end
-            .align-self-center
-              .i.fab.fa-gratipay.align-self-center.text-danger
-              |:
             .align-self-center.js-star-review.mb-1.mr-3 data-score="#{spot.review}" data-read-only="true"
             .align-self-center.mr-3
               .far.fa-thumbs-up.text-warning
