@@ -16,8 +16,9 @@ class SpotsController < ApplicationController
   end
 
   def index
-    @spot_count = Spot.where(user_id: current_user).count
-    @likes_count = Like.where(spot: current_user.spots).count
+    if current_user
+      @spot_count = Spot.where(user_id: current_user).count
+      @likes_count = Like.where(spot: current_user.spots).count
   # ref https://qiita.com/MitsuguSueyoshi/items/18fa5e49a27e727f00b4
     # @ranking = Spot.find(Like.group(:spot_id).order('count(spot_id) desc').pluck(:spot_id))
     # spot_like_count = Spot.joins(:likes).group(:spot_id).count
@@ -25,6 +26,7 @@ class SpotsController < ApplicationController
     # spot_liked_ids = Hash[spot_like_count.sort_by{ |_, v| -v }].keys
     # @ranking = Spot.where(id: spot_liked_ids)
     # @ranking = Spot.joins(:)
+    end
     if params[:q].present?
     # 検索フォームからアクセスした時の処理
       @search = Spot.ransack(params[:q])

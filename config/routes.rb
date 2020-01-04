@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   end
   resources :stocks,      only: %i(index create destroy)
   resources :likes,       only: %i(index create destroy)
-  resources :prefectures, only: %i(index)
+  resources :prefectures, only: %i(index show)
 end

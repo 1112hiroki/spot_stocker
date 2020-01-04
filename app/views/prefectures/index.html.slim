@@ -1,13 +1,300 @@
 .container
-  h1 都道府県検索
-  .span 東京都の投稿件数
+  h1 都道府県から探す
+  .row.d-flex.justify-content-center.my-4
+    =link_to prefecture_path(13), class: "prefecture-top" do
+      .prefecture-img.prefecture-img.tokyo-img
+      .d-inline-block.mr-3.align-self-center 東京都
+      .align-self-center= @prefectures[13] ||= 0
+      .align-self-center 件
+    =link_to prefecture_path(14), class: "prefecture-top" do
+      .prefecture-img.prefecture-img.kanagawa-img
+      .d-inline-block.mr-3.align-self-center 神奈川県
+      .align-self-center= @prefectures[14] ||= 0
+      .align-self-center 件
+    =link_to prefecture_path(12), class: "prefecture-top" do
+      .prefecture-img.prefecture-img.chiba-img
+      .d-inline-block.mr-3.align-self-center 千葉県
+      .align-self-center= @prefectures[12] ||= 0
+      .align-self-center 件
+  .row.d-flex.justify-content-center.my-4
+    =link_to prefecture_path(27), class: "prefecture-top" do
+      .prefecture-img.prefecture-img.osaka-img
+      .d-inline-block.mr-3.align-self-center 大阪府
+      .align-self-center= @prefectures[27] ||= 0
+      .align-self-center 件
+    =link_to prefecture_path(26), class: "prefecture-top" do
+      .prefecture-img.prefecture-img.kyoto-img
+      .d-inline-block.mr-3.align-self-center 京都府
+      .align-self-center= @prefectures[26] ||= 0
+      .align-self-center 件
+    =link_to prefecture_path(40), class: "prefecture-top" do
+      .prefecture-img.prefecture-img.hukuoka-img
+      .d-inline-block.mr-3.align-self-center 福岡県
+      .align-self-center= @prefectures[40] ||= 0
+      .align-self-center 件
 
-  .span 東京都の投稿件数
-  
-  .span 東京都の投稿件数
-  
-  .span 東京都の投稿件数
-  
-  .span 東京都の投稿件数
-  
-  .span 東京都の投稿件数
+  .row.d-flex.border-info
+    .col-2.text-center
+      |北海道・東北
+    .prefecture-box
+      . 北海道
+      =link_to prefecture_path(1), class: "" do
+        = @prefectures[1] ||= 0
+        |件
+    .prefecture-box
+      . 青森県
+      =link_to prefecture_path(2), class: "" do
+        = @prefectures[2] ||= 0
+        |件
+    .prefecture-box
+      . 岩手県
+      =link_to prefecture_path(3), class: "" do
+        = @prefectures[3] ||= 0
+        |件
+    .prefecture-box
+      . 宮城県
+      =link_to prefecture_path(4), class: "" do
+        = @prefectures[4] ||= 0
+        |件
+    .prefecture-box
+      . 秋田県
+      =link_to prefecture_path(5), class: "" do
+        = @prefectures[5] ||= 0
+        |件
+    .prefecture-box
+      . 山形県
+      =link_to prefecture_path(6), class: "" do
+        = @prefectures[6] ||= 0
+        |件
+    .prefecture-box
+      . 福島県
+      =link_to prefecture_path(7), class: "" do
+        = @prefectures[7] ||= 0
+        |件
+  .row.d-flex
+    .col-2.text-center
+      |関東
+    .prefecture-box
+      . 茨城県
+      =link_to prefecture_path(8), class: "" do
+        = @prefectures[8] ||= 0
+        |件
+    .prefecture-box
+      . 栃木県
+      =link_to prefecture_path(9), class: "" do
+        = @prefectures[9] ||= 0
+        |件
+    .prefecture-box
+      . 群馬県
+      =link_to prefecture_path(10), class: "" do
+        = @prefectures[10] ||= 0
+        |件
+    .prefecture-box
+      . 埼玉県
+      =link_to prefecture_path(11), class: "" do
+        = @prefectures[11] ||= 0
+        |件
+    .prefecture-box
+      . 千葉県
+      =link_to prefecture_path(12), class: "" do
+        = @prefectures[12] ||= 0
+        |件
+    .prefecture-box
+      . 東京都
+      =link_to prefecture_path(13), class: "" do
+        = @prefectures[13] ||= 0
+        |件
+    .prefecture-box
+      . 神奈川県
+      =link_to prefecture_path(14), class: "" do
+        = @prefectures[14] ||= 0
+        |件
+  .row.d-flex
+    .col-2.text-center
+      |中部
+    .prefecture-box
+      . 新潟県
+      =link_to prefecture_path(15), class: "" do
+        = @prefectures[15] ||= 0
+        |件
+    .prefecture-box
+      . 富山県
+      =link_to prefecture_path(16), class: "" do
+        = @prefectures[16] ||= 0
+        |件
+    .prefecture-box
+      . 石川県
+      =link_to prefecture_path(17), class: "" do
+        = @prefectures[17] ||= 0
+        |件
+    .prefecture-box
+      . 福井県
+      =link_to prefecture_path(18), class: "" do
+        = @prefectures[18] ||= 0
+        |件
+    .prefecture-box
+      . 山梨県
+      =link_to prefecture_path(19), class: "" do
+        = @prefectures[19] ||= 0
+        |件
+    .prefecture-box
+      . 長野県
+      =link_to prefecture_path(20), class: "" do
+        = @prefectures[20] ||= 0
+        |件
+    .prefecture-box
+      . 岐阜県
+      =link_to prefecture_path(21), class: "" do
+        = @prefectures[21] ||= 0
+        |件
+    .prefecture-box
+      . 静岡県
+      =link_to prefecture_path(22), class: "" do
+        = @prefectures[22] ||= 0
+        |件
+    .prefecture-box
+      . 愛知県
+      =link_to prefecture_path(23), class: "" do
+        = @prefectures[23] ||= 0
+        |件
+    .prefecture-box
+      . 三重県
+      =link_to prefecture_path(24), class: "" do
+        = @prefectures[24] ||= 0
+        |件
+  .row.d-flex
+    .col-2.text-center
+      |関西
+    .prefecture-box
+      . 滋賀県
+      =link_to prefecture_path(25), class: "" do
+        = @prefectures[25] ||= 0
+        |件
+    .prefecture-box
+      . 京都府
+      =link_to prefecture_path(26), class: "" do
+        = @prefectures[26] ||= 0
+        |件
+    .prefecture-box
+      . 大阪府
+      =link_to prefecture_path(27), class: "" do
+        = @prefectures[27] ||= 0
+        |件
+    .prefecture-box
+      . 兵庫県
+      =link_to prefecture_path(28), class: "" do
+        = @prefectures[28] ||= 0
+        |件
+    .prefecture-box
+      . 奈良県
+      =link_to prefecture_path(29), class: "" do
+        = @prefectures[29] ||= 0
+        |件
+    .prefecture-box
+      . 和歌山県
+      =link_to prefecture_path(30), class: "" do
+        = @prefectures[30] ||= 0
+        |件
+  .row.d-flex
+    .col-2.text-center
+      |中国・四国
+    .prefecture-box
+      . 鳥取県
+      =link_to prefecture_path(31), class: "" do
+        = @prefectures[31] ||= 0
+        |件
+    .prefecture-box
+      . 島根県
+      =link_to prefecture_path(32), class: "" do
+        = @prefectures[32] ||= 0
+        |件
+    .prefecture-box
+      . 岡山県
+      =link_to prefecture_path(33), class: "" do
+        = @prefectures[33] ||= 0
+        |件
+    .prefecture-box
+      . 広島県
+      =link_to prefecture_path(34), class: "" do
+        = @prefectures[34] ||= 0
+        |件
+    .prefecture-box
+      . 山口県
+      =link_to prefecture_path(35), class: "" do
+        = @prefectures[35] ||= 0
+        |件
+    .prefecture-box
+      . 徳島県
+      =link_to prefecture_path(36), class: "" do
+        = @prefectures[36] ||= 0
+        |件
+    .prefecture-box
+      . 香川県
+      =link_to prefecture_path(37), class: "" do
+        = @prefectures[37] ||= 0
+        |件
+    .prefecture-box
+      . 愛媛県
+      =link_to prefecture_path(38), class: "" do
+        = @prefectures[38] ||= 0
+        |件
+    .prefecture-box
+      . 高知県
+      =link_to prefecture_path(39), class: "" do
+        = @prefectures[39] ||= 0
+        |件
+  .row.d-flex
+    .col-2.text-center
+      |九州・沖縄
+    .prefecture-box
+      . 福岡県
+      =link_to prefecture_path(40), class: "" do
+        = @prefectures[40] ||= 0
+        |件
+    .prefecture-box
+      . 佐賀県
+      =link_to prefecture_path(41), class: "" do
+        = @prefectures[41] ||= 0
+        |件
+    .prefecture-box
+      . 長崎県
+      =link_to prefecture_path(42), class: "" do
+        = @prefectures[42] ||= 0
+        |件
+    .prefecture-box
+      . 熊本県
+      =link_to prefecture_path(43), class: "" do
+        = @prefectures[43] ||= 0
+        |件
+    .prefecture-box
+      . 大分県
+      =link_to prefecture_path(44), class: "" do
+        = @prefectures[44] ||= 0
+        |件
+    .prefecture-box
+      . 宮崎県
+      =link_to prefecture_path(45), class: "" do
+        = @prefectures[45] ||= 0
+        |件
+    .prefecture-box
+      . 鹿児島県
+      =link_to prefecture_path(46), class: "" do
+        = @prefectures[46] ||= 0
+        |件
+    .prefecture-box
+      . 沖縄県
+      =link_to prefecture_path(47), class: "" do
+        = @prefectures[47] ||= 0
+        |件
+
+
+
+/ 01：北海道
+/ 02：青森県　03：岩手県　04：宮城県　05：秋田県　06：山形県　07：福島県
+/ 08：茨城県　09：栃木県　10：群馬県　11：埼玉県　12：千葉県　13：東京都　14：神奈川県
+/ 15：新潟県　16：富山県　17：石川県　18：福井県　19：山梨県　20：長野県
+/ 21：岐阜県　22：静岡県　23：愛知県　24：三重県
+/ 25：滋賀県　26：京都府　27：大阪府　28：兵庫県　29：奈良県　30：和歌山県
+/ 31：鳥取県　32：島根県　33：岡山県　34：広島県　35：山口県
+/ 36：徳島県　37：香川県　38：愛媛県　39：高知県
+/ 40：福岡県　41：佐賀県　42：長崎県　43：熊本県　44：大分県　45：宮崎県　46：鹿児島県　47：沖縄県
