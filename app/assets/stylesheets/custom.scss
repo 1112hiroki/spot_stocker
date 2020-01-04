@@ -527,3 +527,62 @@ body {
       font-size: 14px;
     }
   }
+
+
+// prefecture/index
+
+  .prefecture-box{
+    text-align: center;
+    width: 90px;
+    height: 90px;
+  }
+
+  .prefecture-top{
+    display: flex;
+    font-size: 1.4rem;
+    color: #6c757d;
+    border: solid 2px #6c757d;
+    border-radius: 15px;
+    text-align: center;
+    width: 280px;
+    margin: 10px;
+    padding: 8px;
+    transition: opacity .4s;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+      color: #6c757d;
+      text-decoration: none;
+    }
+  }
+
+  .prefecture-img{
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+    border-radius: 15px;
+    background-size: cover;
+  }
+
+  .tokyo-img{
+    background-image: url("/images/tokyo.jpg");
+  }
+  .chiba-img{
+    background-image: url("/images/chiba.jpg");
+  }
+
+  .kanagawa-img{
+    background-image: url("/images/kanagawa.jpg");
+  }
+
+  .osaka-img{
+    background-image: url("/images/osaka.jpg");
+  }
+
+  .kyoto-img{
+    background-image: url("/images/kyoto.jpg");
+  }
+
+  .hukuoka-img{
+    background-image: url("/images/hukuoka.jpg");
+  }
