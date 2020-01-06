@@ -13,5 +13,4 @@ html
     = render 'partial/header'
     - flash.each do |key, value|
       = content_tag(:div, value, class: "flash flash__#{key}")
-    .mb-4
     = yield
