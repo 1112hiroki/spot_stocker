@@ -39,7 +39,7 @@ body {
       position: relative;
       margin: 0;
       padding: 5px 0px;
-      font-size:15px;
+      font-size:14px;
       justify-content: space-between;
       align-items: center;
       li {
@@ -52,8 +52,8 @@ body {
       }
       &_title {
         color: #fff;
-        font-size: 25px;
-        font-weight: bold;
+        font-size: 22px;
+        font-weight: bolder;
       }
       &_inner {
         display: flex;
@@ -229,6 +229,127 @@ body {
   width: 100%;
   max-width: 1000px;
   max-height: 500px;
+}
+
+.top-image{
+  width: 100%;
+  height: 550px;
+  background-image: url("/images/top.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #464646;
+}
+
+.top-font{
+  position: relative;
+  top: 200px;
+  left: 100px;
+  color: white;
+  text-shadow: 2px 2px 2px #333;
+  font-size: 2rem;
+  font-weight: bolder;
+  font-family: 'Meiryo UI',sans-serif;
+}
+
+.top-title{
+  text-align: center;
+  margin-top: 40px;
+  // border-bottom: solid 2px #999;
+  &-image{
+    width: 200px;
+  }
+  &-head{
+    vertical-align: middle;
+    font-size: 1.5rem;
+  }
+  &-font{
+    margin-top: 20px;
+    font-size: 1.4rem;
+  }
+  &-icon{
+    font-size: 2.5rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  &-point{
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  &-guide{
+    color: #666;
+  }
+  &-point1{
+    background-image: url("/images/top-point1.png");
+    background-size: cover;
+    height: 200px;
+    width: 400px;
+  }
+  &-point2{
+    background-image: url("/images/top-point2.png");
+    background-size: cover;
+    height: 200px;
+    width: 400px;
+  }
+  &-point3{
+    background-image: url("/images/top-point3.png");
+    background-size: cover;
+    height: 200px;
+    width: 400px;
+  }
+}
+
+.top-description{
+  &-image{
+    background-image: url("/images/top2.jpg");
+    background-size: cover;
+    height: 650px;
+  }
+  &-title{
+    font-size: 2rem;
+    &-head{
+      font-size: 3rem;
+      font-weight: bolder;
+      color: #F8B44E;
+    }
+  }
+  &-guide{
+    margin-top: 30px;
+    font-size: 1.2rem;
+  }
+}
+
+.text-border{
+  border-bottom: solid 1px;
+}
+
+.top-button-sigin{
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  background: #F8B44E;
+  color: #fff;
+  transition: opacity 0.5s;
+  &:hover {
+    opacity: 0.7;
+    color: #fff;
+  }
+}
+.top-button-login{
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  background: #fff;
+  color: #666;
+  border: solid 1.5px #666;
+  transition: opacity 0.5s;
+  &:hover {
+    opacity: 0.7;
+    color: #666;
+  }
 }
 
 
