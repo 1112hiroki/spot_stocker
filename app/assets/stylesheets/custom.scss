@@ -5,6 +5,10 @@ body {
   }
 }
 
+.top-margin{
+  margin-top: 1.5rem;
+}
+
 .flash {
   color: white;
   text-align: center;
@@ -256,7 +260,6 @@ body {
 .top-title{
   text-align: center;
   margin-top: 40px;
-  // border-bottom: solid 2px #999;
   &-image{
     width: 200px;
   }
@@ -264,13 +267,16 @@ body {
     vertical-align: middle;
     font-size: 1.5rem;
   }
+  &-margin{
+    margin: 60px 0;
+  }
   &-font{
     margin-top: 20px;
     font-size: 1.4rem;
   }
   &-icon{
     font-size: 2.5rem;
-    margin-top: 30px;
+    margin-top: 60px;
     margin-bottom: 10px;
   }
   &-point{
@@ -283,20 +289,17 @@ body {
   &-point1{
     background-image: url("/images/top-point1.png");
     background-size: cover;
-    height: 200px;
-    width: 400px;
+    height: 280px;
   }
   &-point2{
     background-image: url("/images/top-point2.png");
     background-size: cover;
-    height: 200px;
-    width: 400px;
+    height: 280px;
   }
   &-point3{
     background-image: url("/images/top-point3.png");
     background-size: cover;
-    height: 200px;
-    width: 400px;
+    height: 250px;
   }
 }
 
@@ -350,6 +353,23 @@ body {
     opacity: 0.7;
     color: #666;
   }
+}
+
+
+.sign-up-image{
+  background-image: url("/images/sign-up.png");
+  background-size: cover;
+  height: 200px;
+  width: 320px;
+  margin: 0 auto 50px;
+}
+
+.log-in-image{
+  background-image: url("/images/log-in.png");
+  background-size: cover;
+  height: 200px;
+  width: 320px;
+  margin: 0 auto 50px;
 }
 
 
@@ -587,138 +607,139 @@ body {
   top:20px;
 }
 
+.spot-content{
+  height:130px;
+  overflow: hidden;
+}
 
 
 
-
-
-
-  .ProfileImg {
-    padding: 10px;
-    border: solid 2px lightgray;
-    position: relative;
-    margin: 0 auto 10px auto;
-    width: 75%;
-    height: 200px;
-    border-radius: 5px;
-    background-image: url("/images/thumbnail.png");
-    background-size: cover;
+.ProfileImg {
+  padding: 10px;
+  border: solid 2px lightgray;
+  position: relative;
+  margin: 0 auto 10px auto;
+  width: 75%;
+  height: 200px;
+  border-radius: 5px;
+  background-image: url("/images/thumbnail.png");
+  background-size: cover;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  &:hover .ProfileImg_description {
+    opacity: 1;
+  }
+  &_description {
+    transition: opacity .5s;
+    opacity: 0;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    font-size: 10px;
     display: flex;
-    cursor: pointer;
     align-items: center;
     justify-content: center;
-    &:hover .ProfileImg_description {
-      opacity: 1;
-    }
-    &_description {
-      transition: opacity .5s;
-      opacity: 0;
-      width: 100%;
-      height: auto;
-      position: absolute;
-      font-size: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(5, 5, 5, .5);
-      color: #fff;
-    }
-    .fa-camera {
-      color: #fff;
-    }
-    &>input {
-      display: none;
-    }
+    background: rgba(5, 5, 5, .5);
+    color: #fff;
   }
-  .userImgPreview {
-    margin: 0 auto;
+  .fa-camera {
+    color: #fff;
+  }
+  &>input {
     display: none;
-    text-align: center;
-    &.is-active {
-      display: block;
-    }
-    &_content {
-      max-width: 50%;
-      margin: 10px;
-      padding: 10px;
-      border: solid thin lightgray;
-      border-radius: 5px;
-    }
-    &_text {
-      font-size: 14px;
-    }
   }
+}
+.userImgPreview {
+  margin: 0 auto;
+  display: none;
+  text-align: center;
+  &.is-active {
+    display: block;
+  }
+  &_content {
+    max-width: 50%;
+    margin: 10px;
+    padding: 10px;
+    border: solid thin lightgray;
+    border-radius: 5px;
+  }
+  &_text {
+    font-size: 14px;
+  }
+}
 
 
 // prefecture/index
 
-  .prefecture-box{
-    text-align: center;
-    width: 90px;
-    height: 90px;
-  }
+.prefecture-box{
+  text-align: center;
+  width: 90px;
+  height: 90px;
+}
 
-  .prefecture-top{
-    display: flex;
-    font-size: 1.4rem;
+.prefecture-top{
+  display: flex;
+  font-size: 1.4rem;
+  color: #6c757d;
+  border: solid 2px #6c757d;
+  border-radius: 15px;
+  text-align: center;
+  width: 280px;
+  margin: 10px;
+  padding: 8px;
+  transition: opacity .4s;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
     color: #6c757d;
-    border: solid 2px #6c757d;
-    border-radius: 15px;
-    text-align: center;
-    width: 280px;
-    margin: 10px;
-    padding: 8px;
-    transition: opacity .4s;
-    cursor: pointer;
-    &:hover {
-      opacity: 0.7;
-      color: #6c757d;
-      text-decoration: none;
-    }
+    text-decoration: none;
   }
+}
 
-  .prefecture-img{
-    width: 70px;
-    height: 70px;
-    margin-right: 20px;
-    border-radius: 15px;
-    background-size: cover;
-  }
+.prefecture-img{
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+  border-radius: 15px;
+  background-size: cover;
+}
 
-  .tokyo-img{
-    background-image: url("/images/tokyo.jpg");
-  }
-  .chiba-img{
-    background-image: url("/images/chiba.jpg");
-  }
+.tokyo-img{
+  background-image: url("/images/tokyo.jpg");
+}
+.chiba-img{
+  background-image: url("/images/chiba.jpg");
+}
 
-  .kanagawa-img{
-    background-image: url("/images/kanagawa.jpg");
-  }
+.kanagawa-img{
+  background-image: url("/images/kanagawa.jpg");
+}
 
-  .osaka-img{
-    background-image: url("/images/osaka.jpg");
-  }
+.osaka-img{
+  background-image: url("/images/osaka.jpg");
+}
 
-  .kyoto-img{
-    background-image: url("/images/kyoto.jpg");
-  }
+.kyoto-img{
+  background-image: url("/images/kyoto.jpg");
+}
 
-  .hukuoka-img{
-    background-image: url("/images/hukuoka.jpg");
-  }
+.hukuoka-img{
+  background-image: url("/images/hukuoka.jpg");
+}
 
 
-  .fa-map-marker-alt{
-    margin: 0 2px;
-  }
+.fa-map-marker-alt{
+  margin: 0 2px;
+}
 
-  .border-top{
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    margin-top: 35px;
-  }
+.border-top{
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 35px;
+}
 
-  #map{
-    height: 250px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-  }
+#map{
+  height: 250px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}

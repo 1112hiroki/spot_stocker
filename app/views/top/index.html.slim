@@ -9,8 +9,8 @@
   br
   .top-title-font デートスポット選びで失敗したくない人のための情報共有サイトです。
   .container.border-bottom
-    .row.my-5
-      .col-5.order-1
+    .row.top-title-margin
+      .col-7.order-1
         .fas.fa-user-check.top-title-icon
         .top-title-point 信頼の出来る口コミ情報
         .top-title-guide
@@ -18,9 +18,9 @@
           |実際にそこに行ったことがあるユーザーが情報を提供。
           br
           |１０段階の評価・コメントやいいね機能もあり、信頼性の高い情報が得られます。
-      .col-7.order-2.top-title-point1
-    .row.my-5
-      .col-5.order-2
+      .col-4.order-2.top-title-point1
+    .row.top-title-margin
+      .col-7.order-2
         .fas.fa-search-location.top-title-icon
         .top-title-point 行きたい場所を探しやすい
         .top-title-guide
@@ -28,9 +28,9 @@
           |都道府県での検索機能だけでなく、
           br
           |スポットの位置をGoogleMapで確認することも出来ます。
-      .col-7.order-1.top-title-point2
-    .row.my-5
-      .col-5.order-1
+      .col-4.offset-1.order-1.top-title-point2
+    .row.top-title-margin
+      .col-7.order-1
         .fas.fa-book.top-title-icon
         .top-title-point 気になったらまず「お気に入り」
         .top-title-guide
@@ -38,8 +38,8 @@
           |行きたい場所が多すぎますか？
           br
           |お気に入りへ登録すればいつでも確認が可能です。
-      .col-7.order-2.top-title-point3
-.container.mt-5
+      .col-4.order-2.top-title-point3
+.container.my-5
   .row
     .col-5.top-description-image
     .col-7.px-5
@@ -60,11 +60,12 @@
         br
         br
         span.text-center インターネットの情報で起こりがちな「イメージと違った」を無くすため、実際に行ったスポットをユーザー同士で共有し、失敗しない人気スポットを探しましょう！
-      .text-center.mt-5
-        span.text-muted 新規登録の方
-        br
-        = link_to "アカウント作成", new_user_registration_path, class: "btn top-button-sigin"
-      .text-center.mt-5
-        span.text-muted アカウントをお持ちの方
-        br
-        = link_to "ログインする", new_user_session_path, class: "btn top-button-login"
+      .row.text-center.mt-5
+        .col
+          span.text-muted 新規登録の方
+          br
+          = link_to "アカウント作成", new_user_registration_path, class: "btn top-button-sigin"
+        .col
+          span.text-muted アカウントをお持ちの方
+          br
+          = link_to "ログインする", new_user_session_path, class: "btn top-button-login"
