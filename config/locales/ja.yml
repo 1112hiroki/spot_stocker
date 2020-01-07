@@ -10,6 +10,9 @@ ja:
         sex: "性別"
         age: "年代"
       spot:
+        name: "ユーザー名"
+        sex: "性別"
+        age: "年代"
         title: "記事タイトル"
         content: "スポット詳細"
         spot_name: "スポット名称"
