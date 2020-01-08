@@ -1,6 +1,5 @@
 class PrefecturesController < ApplicationController
   def index
-    @prefecture_tokyo = Spot.where(prefecture_code: 13).count
     @prefectures = Spot.group(:prefecture_code).count
   end
 
