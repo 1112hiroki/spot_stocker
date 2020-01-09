@@ -9,6 +9,7 @@ ja:
         profile: "プロフィール"
         sex: "性別"
         age: "年代"
+        current_password: "更新用パスワード"
       spot:
         name: "ユーザー名"
         sex: "性別"

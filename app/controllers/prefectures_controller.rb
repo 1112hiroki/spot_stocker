@@ -19,7 +19,7 @@ class PrefecturesController < ApplicationController
       # @q = Spot.ransack(params[:q])
       # @spots = @q.result(distinct: true).page(params[:page]).per(10)
 
-      @spot = Spot.find(params[:id])
+      @spot = params[:id]
       @spots = Spot.where(prefecture_code: @spot)
       # @prefecture_name = @spots.prefecture_code
       # binding.pry

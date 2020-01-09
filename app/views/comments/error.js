@@ -1,1 +1,1 @@
-alert("<%= @comment.errors.full_messages.join('。') %>");
+alert("コメントが空白です。");
