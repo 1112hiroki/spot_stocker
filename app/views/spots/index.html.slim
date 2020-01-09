@@ -19,8 +19,8 @@
               |投稿した記事の数:　#{@spot_count}件
             .
               |いいね！された数:　#{@likes_count}回
-            .
-              |いいねランキング:　#{@ranking}
+            / .
+            /   |いいねランキング:　#{@ranking}
           = link_to new_spot_path, class: "btn btn-newpost" do
             i.fas.fa-file-alt.mr-2
             span 記事投稿する
