@@ -4,13 +4,9 @@
 「次の休みの出かける場所を探してる時間がない」「情報量が多すぎてどこを選んだらいいのか分からない」
 こんな悩みを解決したい方の手助けになると思い作成しました。
 
-![FireShot Capture 009 - Spotストッカー - spot-stocker herokuapp com](https://user-images.githubusercontent.com/57358551/72244779-5628ca80-3632-11ea-828d-bfe9d13d9301.png)
-![FireShot Capture 010 - Spotストッカー - spot-stocker herokuapp com](https://user-images.githubusercontent.com/57358551/72244809-6345b980-3632-11ea-846e-824b73fa8109.png)
-![FireShot Capture 011 - Spotストッカー - spot-stocker herokuapp com](https://user-images.githubusercontent.com/57358551/72244814-6771d700-3632-11ea-9068-d128b6460199.png)
-
 # サービスURL
 現在はheroku上にデプロイしております。（レスポンスは現在未対応です）
-https://spot-stocker.herokuapp.com/
+https://spot-stocker.herokuapp.com
 
 # 技術スタック
 * Ruby 2.5.1
@@ -35,6 +31,10 @@ https://spot-stocker.herokuapp.com/
 * 投稿記事のページネーション （kaminari）
 * 投稿記事の都道府県別の表示
 
+
+![FireShot Capture 010 - Spotストッカー - spot-stocker herokuapp com](https://user-images.githubusercontent.com/57358551/72244809-6345b980-3632-11ea-846e-824b73fa8109.png)
+
+![FireShot Capture 011 - Spotストッカー - spot-stocker herokuapp com](https://user-images.githubusercontent.com/57358551/72244814-6771d700-3632-11ea-9068-d128b6460199.png)
 
 # 環境構築方法/セットアップの仕方
 　・1112hiroki/spot_stockerのリポジトリをあなたのリポジトリに[fork](https://qiita.com/YumaInaura/items/acff806290c8953d3185)して下さい。
