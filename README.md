@@ -1,11 +1,14 @@
 # サービス概要
-思い出の場所の共有サイト「Spotストッカー」
+思い出の場所の共有サイト
+「Spotストッカー」
 
 「次の休みの出かける場所を探してる時間がない」「情報量が多すぎてどこを選んだらいいのか分からない」
 こんな悩みを解決したい方の手助けになると思い作成しました。
 
 # サービスURL
 現在はheroku上にデプロイしております。（レスポンスは現在未対応です）
+
+
 https://spot-stocker.herokuapp.com
 
 # 技術スタック
@@ -38,11 +41,21 @@ https://spot-stocker.herokuapp.com
 
 
 # テーブル設計
-下記のテーブルにて作成しております。（２０２０/01/13）
+下記のテーブルにて作成しております。（2020/01/13）
+
+
 ■ユーザー：user
+
+
 ■投稿：spot
+
+
 ■コメント：comment
+
+
 ■いいね：like
+
+
 ■ストック：stock
 
 <img width="943" alt="【ER図】Postストッカー_New_Diagram_-_Cacoo" src="https://user-images.githubusercontent.com/57358551/72245754-98eba200-3634-11ea-95ea-004586721271.png">
