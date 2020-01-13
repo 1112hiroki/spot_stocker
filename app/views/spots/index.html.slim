@@ -66,8 +66,7 @@
           .col-3
             = image_tag spot.thumbnail.url(), class: 'thumbnail_image'
           .col-9
-            = link_to spot.title, spot_path(spot), class: "text-dark h4"
-            .i.fas.fa-pen-fancy.align-self-center.ml-2
+            = link_to spot.title, spot_path(spot), class: "text-dark spot-index-title"
             .spot-content == spot.content.body
         .row.mt-2
           .col-8.d-flex.text-muted

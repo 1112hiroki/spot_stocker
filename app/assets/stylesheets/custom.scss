@@ -547,6 +547,10 @@ body {
 
 // spots/index
 
+.spot-index-title{
+  font-size: 1.5rem;
+}
+
 .btn-newpost {
   font-size: 1.2rem;
   padding: 8px;
@@ -616,8 +620,9 @@ body {
 }
 
 .spot-content{
-  height:130px;
+  height:125px;
   overflow: hidden;
+  color: #999;
 }
 
 
