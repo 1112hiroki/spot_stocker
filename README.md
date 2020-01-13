@@ -31,10 +31,23 @@ https://spot-stocker.herokuapp.com
 * 投稿記事のページネーション （kaminari）
 * 投稿記事の都道府県別の表示
 
-
+●プレビュー>>スポット一覧画面
 ![FireShot Capture 010 - Spotストッカー - spot-stocker herokuapp com](https://user-images.githubusercontent.com/57358551/72244809-6345b980-3632-11ea-846e-824b73fa8109.png)
-
+●プレビュー>>記事投稿画面
 ![FireShot Capture 011 - Spotストッカー - spot-stocker herokuapp com](https://user-images.githubusercontent.com/57358551/72244814-6771d700-3632-11ea-9068-d128b6460199.png)
+
+
+# テーブル設計
+下記のテーブルにて作成しております。（２０２０/01/13）
+■ユーザー：user
+■投稿：spot
+■コメント：comment
+■いいね：like
+■ストック：stock
+
+<img width="943" alt="【ER図】Postストッカー_New_Diagram_-_Cacoo" src="https://user-images.githubusercontent.com/57358551/72245754-98eba200-3634-11ea-95ea-004586721271.png">
+
+
 
 # 環境構築方法/セットアップの仕方
 　・1112hiroki/spot_stockerのリポジトリをあなたのリポジトリに[fork](https://qiita.com/YumaInaura/items/acff806290c8953d3185)して下さい。
