@@ -4,6 +4,8 @@ html
   head
     title
       | Spotストッカー
+      -if Rails.env.development?
+      | (開発環境)
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all'

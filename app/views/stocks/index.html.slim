@@ -1,26 +1,26 @@
 .container.top-margin
   h1 ストック一覧
-  .md-3
-  table.table.table-hover
-    thead.thead-default
-      tr
-        th= Spot.human_attribute_name(:title)
-        / th= Spot.human_attribute_name(:content)
-        th= Spot.human_attribute_name(:name)
-        th= Spot.human_attribute_name(:sex)
-        th= Spot.human_attribute_name(:age)
-        th= Spot.human_attribute_name(:created_at)
-        th
-    tbody
-      - @stock_spots.each do |spot|
+  -if @stock_spots.present?
+    .md-3
+    table.table.table-hover
+      thead.thead-default
         tr
-          td= link_to spot.title, spot_path(spot)
-          / td== spot.content
-          td= link_to spot.user.name,"/users/#{spot.user.id}"
-          td= spot.user.sex
-          td= spot.user.age
-          td= simple_time(spot.created_at)
+          th= Spot.human_attribute_name(:title)
+          th= Spot.human_attribute_name(:spot_name)
+          th= Spot.human_attribute_name(:name)
+          th= Spot.human_attribute_name(:stay_time)
+          th= Spot.human_attribute_name(:created_at)
+      tbody
+        - @stock_spots.each do |spot|
+          tr
+            td= link_to spot.title, spot_path(spot)
+            td= spot.spot_name
+            td= link_to spot.user.name,"/users/#{spot.user.id}"
+            td= spot.stay_time
+            td= simple_time(spot.created_at)
 
-  <!-- 10件毎にページネーション -->
-  .paginate
-    = paginate @stock_spots
+    <!-- 10件毎にページネーション -->
+    .paginate
+      = paginate @stock_spots
+  -else
+    | まだストックした投稿がありません。

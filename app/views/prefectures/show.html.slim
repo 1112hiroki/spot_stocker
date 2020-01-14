@@ -1,11 +1,10 @@
 .container.top-margin
-  h1 都道府県
-  / =@spots.prefecture_code
+  h1 都道府県検索
   .row
     .col-3
       .side_bar
         - if current_user
-          .border.rounded.p-3
+          .border.rounded.p-3.box-shadow
             .d-flex
               .userHeader_img
                 = image_tag current_user.image.url(:thumb_header) ,class: 'user_image'
@@ -28,6 +27,21 @@
           = link_to stocks_path, class: "btn btn-stocks" do
             i.fas.fa-book.mr-2
             span ストック一覧
+        - else
+          .border.rounded.p-3.box-shadow
+            .row.text-center.text-muted
+              .col
+                | Spotストッカーへようこそ！
+            .eye-catching-image
+            .row.text-muted
+              .col
+                | アカウントを作成すると、気になった投稿をストックできる機能や、いいね・コメント、記事の投稿も可能です。
+            = link_to new_user_registration_path, class: "nav-link btn btn-signin mt-3" do
+              i.fas.fa-user-plus.mr-2
+              span アカウント作成
+            = link_to new_user_session_path, class: "nav-link btn btn-login mt-3" do
+              i.fas.fa-sign-in-alt.mr-2
+              span ログインする
         = link_to prefectures_path, class: "btn btn-prefectures" do
           i.fas.fa-globe-asia.mr-2
           span 都道府県検索
@@ -43,47 +57,49 @@
         /     = f.select( :sorts, { '投稿日時(新しい)順': 'id desc', '投稿日時(古い)順': 'id asc', 'いいね!の多い順': 'likes_count desc', 'レビュー評価が高い順': 'review desc'} , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()', style: 'width: 100%; height: 2rem;'})
     .col-9
       hr class="my-2"
-      - @spots.each do |spot|
-        .row.my-2
-          .col-4.d-flex
-            .userHeader_img
-              = image_tag spot.user.image.url(:thumb_header), class: 'user_image'
-            .inline-block.align-self-center
-              = link_to spot.user.name,"/users/#{spot.user.id}", class: 'text-muted'
-          .col-8.d-flex.justify-content-end
-            .align-self-center.js-star-review.mb-1.mr-3 data-score="#{spot.review}" data-read-only="true"
-            .align-self-center.mr-3
-              .far.fa-thumbs-up.text-warning
-              |:
-              =spot.likes.count
-            .align-self-center.mr-3
-              .fas.fa-book.text-success
-              |:
-              =spot.stocks.count
-            .align-self-center.float-right.text-muted
-              |投稿日時:
-              = simple_time(spot.created_at)
-        .row
-          .col-3
-            = image_tag spot.thumbnail.url(), class: 'thumbnail_image'
-          .col-9
-            = link_to spot.title, spot_path(spot), class: "text-dark h4"
-            .i.fas.fa-pen-fancy.align-self-center.ml-2
-            .d-block == spot.content.body
-        .row.mt-2
-          .col-8.d-flex.text-muted
-            .i.fas.fa-map-marker-alt.align-self-center.mr-1
-            .mr-4= spot.spot_name
-            .i.fas.fa-map-signs.align-self-center.mr-1
-            .mr-2= spot.prefecture&.name
-            = spot.address_city
-            = spot.address_street
-            = spot.address_building
-          .col-4.d-flex.justify-content-end.text-muted
-            .i.far.fa-clock.align-self-center.mr-1
-            |滞在時間(目安):
-            = spot.stay_time
-        hr class="mt-3"
-
-      / .paginate
-      /   = paginate @spots
+      -if @spots.present?
+        - @spots.each do |spot|
+          .row.my-2
+            .col-4.d-flex
+              .userHeader_img
+                = image_tag spot.user.image.url(:thumb_header), class: 'user_image'
+              .inline-block.align-self-center
+                = link_to spot.user.name,"/users/#{spot.user.id}", class: 'text-muted'
+            .col-8.d-flex.justify-content-end
+              .align-self-center.js-star-review.mb-1.mr-3 data-score="#{spot.review}" data-read-only="true"
+              .align-self-center.mr-3
+                .far.fa-thumbs-up.text-warning
+                |:
+                =spot.likes.count
+              .align-self-center.mr-3
+                .fas.fa-book.text-success
+                |:
+                =spot.stocks.count
+              .align-self-center.float-right.text-muted
+                |投稿日時:
+                = simple_time(spot.created_at)
+          .row
+            .col-3
+              = image_tag spot.thumbnail.url(), class: 'thumbnail_image'
+            .col-9
+              = link_to spot.title, spot_path(spot), class: "text-dark h4"
+              .i.fas.fa-pen-fancy.align-self-center.ml-2
+              .d-block == spot.content.body
+          .row.mt-2
+            .col-8.d-flex.text-muted
+              .i.fas.fa-map-marker-alt.align-self-center.mr-1
+              .mr-4= spot.spot_name
+              .i.fas.fa-map-signs.align-self-center.mr-1
+              .mr-2= spot.prefecture&.name
+              = spot.address_city
+              = spot.address_street
+              = spot.address_building
+            .col-4.d-flex.justify-content-end.text-muted
+              .i.far.fa-clock.align-self-center.mr-1
+              |滞在時間(目安):
+              = spot.stay_time
+          hr class="mt-3"
+        / .paginate
+        /   = paginate @spots
+      -else
+        | まだ投稿がありません。

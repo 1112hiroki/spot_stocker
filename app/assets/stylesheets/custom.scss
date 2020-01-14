@@ -380,6 +380,13 @@ body {
   margin: 0 auto 50px;
 }
 
+.eye-catching-image{
+  background-image: url("/images/eye-catching.png");
+  background-size: cover;
+  height: 145px;
+  width: 80%;
+  margin: 0 auto;
+}
 
 // sign_up
 .sinupPage {
@@ -755,4 +762,32 @@ body {
 #map{
   height: 250px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 15px -10px;
+}
+
+.box-shadow{
+  box-shadow: 6px 6px 8px -6px gray;
+}
+
+.btn-signin{
+  font-size: 1.1rem;
+  background: #F8B44E;
+  color: #fff;
+  transition: opacity 0.5s;
+  &:hover {
+    opacity: 0.7;
+    color: #fff;
+  }
+}
+
+.btn-login{
+  font-size: 1.1rem;
+  background: #fff;
+  color: #666;
+  border: solid 1.5px #666;
+  transition: opacity 0.5s;
+  &:hover {
+    opacity: 0.7;
+    color: #666;
+  }
 }

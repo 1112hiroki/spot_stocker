@@ -64,8 +64,12 @@
         .col
           span.text-muted 新規登録の方
           br
-          = link_to "アカウント作成", new_user_registration_path, class: "btn top-button-sigin"
+          = link_to new_user_registration_path, class: "btn top-button-sigin box-shadow" do
+            i.fas.fa-user-plus.mr-2
+            span アカウント作成
         .col
           span.text-muted アカウントをお持ちの方
           br
-          = link_to "ログインする", new_user_session_path, class: "btn top-button-login"
+          = link_to new_user_session_path, class: "btn top-button-login box-shadow" do
+            i.fas.fa-sign-in-alt.mr-2
+            span ログインする
