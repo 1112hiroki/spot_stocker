@@ -70,11 +70,9 @@
           .text-right.mt-3
             = f.submit 'コメント', class: 'btn btn-success mb-5'
       - else
-        | まだコメントはありません。
-        br
         | コメントするには
         = link_to "ログイン", new_user_session_path, class: ""
-        |して下さい。
+        | して下さい。
   javascript:
     window.onload = function initMap() {
         var test = {lat: #{@spot.latitude}, lng: #{@spot.longitude}};

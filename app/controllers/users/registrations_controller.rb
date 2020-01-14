@@ -4,7 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
-
+  before_action :forbid_test_user,   only: [:edit,:update,:destroy]
   # GET /resource/sign_up
   def new
     super
@@ -28,6 +28,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # DELETE /resource
   def destroy
     super
+  end
+
+  private
+  def forbid_test_user
+      if @user.email == "test@test.com"
+        flash[:notice] = "テストユーザーのため変更できません"
+        redirect_to root_path
+      end
   end
 
   # GET /resource/cancel

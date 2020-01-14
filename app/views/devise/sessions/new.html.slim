@@ -14,14 +14,14 @@
         = f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "パスワードを入力してください"
       .form-group.text-center
         = f.submit "ログイン", class: "loginBtn"
+      = form_with scope: resource, as: resource_name, url: session_path(resource_name), local: true do |f|
+        = f.hidden_field :email, value: "test@test.com"
+        = f.hidden_field :password, value: "test1234"
+        = f.submit 'テストログイン', class: 'btn btn-dark'
       .text-center.m-3.border-info
         | アカウントを持っていませんか？
         br
-        | 1分で簡単にアカウント登録が可能です。
+        | 約1分で簡単にアカウント登録が可能です。
       .text-center
         = render "devise/shared/links"
       .log-in-image
-      / = form_with scope: :resource, as: resource_name,  url: new_user_session_path(resource_name), local: true do |f|
-      /   = f.hidden_field :email, value: "test@test.com"
-      /   = f.hidden_field :password, value: "testtest"
-      /   = f.submit 'テストログイン', class: 'btn btn-dark'

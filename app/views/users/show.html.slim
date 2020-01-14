@@ -14,8 +14,9 @@
           h5= @user.sex
       p
       - if current_user && current_user.id == @user.id
-        .userAction_edit.userAction_common
-          = link_to '編集',edit_user_registration_path,class: 'btn btn-primary'
+        -if not @user.email == "test@test.com"
+          .userAction_edit.userAction_common
+            = link_to '編集',edit_user_registration_path,class: 'btn btn-primary'
     .col-8
       .text-right 登録日: #{simple_time(@user.created_at)}
       .h5 自己紹介 :
