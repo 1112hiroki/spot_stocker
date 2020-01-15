@@ -42,7 +42,7 @@ class Spot < ApplicationRecord
 
   # 現在ログインしているユーザーidを受け取り、記事をストックする
   def stock(user)
-    stocks.create(user_id: user.id)
+    stocks.create(user: user)
   end
 
   # 現在ログインしているユーザーidを受け取り、記事のストックを解除する
@@ -52,7 +52,8 @@ class Spot < ApplicationRecord
 
   # 記事がストック済みであるかを判定。取得済みであれば true を返す
   def stocked?(user)
-    stock_users.include?(user)
+    #stock_users.include?(user)
+    stock_users.where(user: user).exists?
   end
 
   # 現在ログインしているユーザーidを受け取り、記事をライクする
