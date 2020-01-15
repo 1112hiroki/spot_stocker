@@ -3,29 +3,32 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
-# Use Puma as the app server
 gem 'puma', '~> 4.1'
-# Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-# gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Active Storage variant
 gem 'image_processing', '~> 1.9.3'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'simple_form'
+gem 'coffee-rails', '~> 5.0'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem 'font-awesome-sass', '~> 5.9.0'
+gem 'devise'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'slim-rails'
+gem 'kaminari'
+gem 'jp_prefecture'
+gem 'ransack'
+gem 'seed-fu'
+gem 'geocoder'
+gem 'dotenv-rails'
+gem 'fog-aws'
+gem 'aws-sdk-s3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -42,6 +45,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'html2slim'
 end
 
 group :test do
@@ -55,21 +59,3 @@ end
 group :production do
   gem 'mysql2'
 end
-
-gem 'coffee-rails', '~> 5.0'
-gem 'bootstrap', '~> 4.3.1'
-gem 'jquery-rails'
-gem 'font-awesome-sass', '~> 5.9.0'
-gem 'devise'
-gem 'carrierwave', '~> 1.0'
-gem 'mini_magick'
-gem 'slim-rails'
-gem 'html2slim'
-gem 'kaminari'
-gem 'jp_prefecture'
-gem 'ransack'
-gem 'seed-fu'
-gem 'geocoder'
-gem 'dotenv-rails'
-gem 'fog-aws'
-gem 'aws-sdk-s3'
