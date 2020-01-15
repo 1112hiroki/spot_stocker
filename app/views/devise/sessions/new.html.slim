@@ -14,10 +14,14 @@
         = f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "パスワードを入力してください"
       .form-group.text-center
         = f.submit "ログイン", class: "loginBtn"
+    .text-center
       = form_with scope: resource, as: resource_name, url: session_path(resource_name), local: true do |f|
+        i.fas.fa-id-card.mt-4.mr-2
+        | テストユーザーとしてログインしてみる
+        br
         = f.hidden_field :email, value: "test@test.com"
         = f.hidden_field :password, value: "test1234"
-        = f.submit 'テストログイン', class: 'btn btn-dark'
+        = f.submit 'テストログイン', class: 'btn test-login-btn'
       .text-center.m-3.border-info
         | アカウントを持っていませんか？
         br

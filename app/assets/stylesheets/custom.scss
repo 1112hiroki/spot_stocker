@@ -525,6 +525,22 @@ body {
   }
 }
 
+.test-login-btn {
+  padding: 12px;
+  width: 200px;
+  border-radius: 21px;
+  background: #28A745;
+  color: #fff;
+  text-align: center;
+  border: none;
+  opacity: 1;
+  transition: opacity .5s;
+  cursor: pointer;
+  &:hover {
+    opacity: .7;
+    color: #fff;
+  }
+}
 
 // users/show
 .userInfo_img {
