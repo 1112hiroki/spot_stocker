@@ -1,4 +1,5 @@
 class Spot < ApplicationRecord
+  HOKKAIDO_PREFECTURE_CODES = (1..7)
   belongs_to :user
   geocoded_by :address
   after_validation :geocode

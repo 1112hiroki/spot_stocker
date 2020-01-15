@@ -36,11 +36,11 @@
   .row.d-flex.border-info
     .col-2.text-center
       |北海道・東北
-    - (1..7).each do |precture_id|
+    - Spot::HOKKAIDO_PREFECTURE_CODES.each do |precture_cd|
       .prefecture-box
-        .div= JpPrefecture::Prefecture.find(precture_id).name
-        = link_to prefecture_path(precture_id), class: "" do
-          = @prefectures[precture_id] ||= 0
+        .div= JpPrefecture::Prefecture.find(precture_cd).name
+        = link_to prefecture_path(precture_cd) do
+          = @prefectures[precture_cd] ||= 0
           |件
   .row.d-flex
     .col-2.text-center
