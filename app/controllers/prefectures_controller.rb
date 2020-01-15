@@ -8,12 +8,13 @@ class PrefecturesController < ApplicationController
       @spot_count = Spot.where(user_id: current_user).count
       @likes_count = Like.where(spot: current_user.spots).count
     end
-      if params[:q].present?
-    # 検索フォームからアクセスした時の処理
+
+    if params[:q].present?
+      # 検索フォームからアクセスした時の処理
       @search = Spot.ransack(params[:q])
       @spots = @search.result(distinct: true).page(params[:page]).per(10)
     else
-    # 検索フォーム以外からアクセスした時の処理
+      # 検索フォーム以外からアクセスした時の処理
       # params[:q] = { sorts: 'id desc'}
       # @search = Spot.ransack()
       # @q = Spot.ransack(params[:q])
