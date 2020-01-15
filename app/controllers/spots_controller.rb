@@ -7,8 +7,7 @@ class SpotsController < ApplicationController
   end
 
   def create
-    @spot = Spot.new(spot_params)
-    @spot.user = current_user
+    @spot = current_user.spots.build(spot_params)
     if @spot.save
       redirect_to spots_url, notice: "スポットの投稿が完了しました"
     else
@@ -16,17 +15,9 @@ class SpotsController < ApplicationController
     end
   end
 
-  def prefecture_name
-    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
-  end
-
-  def prefecture_name=(prefecture_name)
-    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
-  end
-
   def index
     if current_user
-      @spot_count = Spot.where(user_id: current_user).count
+      @spot_count = current_user.spots.count
       @likes_count = Like.where(spot: current_user.spots).count
   # ref https://qiita.com/MitsuguSueyoshi/items/18fa5e49a27e727f00b4
     # @ranking = Spot.find(Like.group(:spot_id).order('count(spot_id) desc').pluck(:spot_id))
@@ -88,5 +79,4 @@ class SpotsController < ApplicationController
   def set_spot
     @spot = Spot.find(params[:id])
   end
-
 end
