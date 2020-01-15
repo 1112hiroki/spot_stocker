@@ -10,7 +10,6 @@ class Spot < ApplicationRecord
   has_many :like_users, through: :likes, source: :user
 
   validates :title, presence: true
-  validates :user_id, presence: true
   validates :spot_name, presence: true
   validates :stay_time, presence: true
   validates :postcode, presence: true, format: {with:/\A\d{7}\z/,message: "に誤りがあります"}

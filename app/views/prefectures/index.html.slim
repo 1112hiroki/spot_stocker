@@ -36,41 +36,12 @@
   .row.d-flex.border-info
     .col-2.text-center
       |北海道・東北
-    .prefecture-box
-      . 北海道
-      =link_to prefecture_path(1), class: "" do
-        = @prefectures[1] ||= 0
-        |件
-    .prefecture-box
-      . 青森県
-      =link_to prefecture_path(2), class: "" do
-        = @prefectures[2] ||= 0
-        |件
-    .prefecture-box
-      . 岩手県
-      =link_to prefecture_path(3), class: "" do
-        = @prefectures[3] ||= 0
-        |件
-    .prefecture-box
-      . 宮城県
-      =link_to prefecture_path(4), class: "" do
-        = @prefectures[4] ||= 0
-        |件
-    .prefecture-box
-      . 秋田県
-      =link_to prefecture_path(5), class: "" do
-        = @prefectures[5] ||= 0
-        |件
-    .prefecture-box
-      . 山形県
-      =link_to prefecture_path(6), class: "" do
-        = @prefectures[6] ||= 0
-        |件
-    .prefecture-box
-      . 福島県
-      =link_to prefecture_path(7), class: "" do
-        = @prefectures[7] ||= 0
-        |件
+    - (1..7).each do |precture_id|
+      .prefecture-box
+        .div= JpPrefecture::Prefecture.find(precture_id).name
+        = link_to prefecture_path(precture_id), class: "" do
+          = @prefectures[precture_id] ||= 0
+          |件
   .row.d-flex
     .col-2.text-center
       |関東
