@@ -37,7 +37,7 @@ class Spot < ApplicationRecord
   end
 
   def prefecture_name=(prefecture_name)
-    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name)&.code
   end
 
   # 現在ログインしているユーザーidを受け取り、記事をストックする
