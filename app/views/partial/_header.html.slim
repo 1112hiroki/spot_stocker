@@ -27,11 +27,11 @@ header.header.box-shadow
               p.post-circle 投稿をする
 
             li.nav-link.user_name
-              = link_to current_user.name,"/users/#{current_user.id}"
+              = link_to current_user.name,"/users/#{current_user.id}", class:'user_name_color'
             .userHeader_img
-              = image_tag current_user.image.url(:thumb_header) ,class: 'user_image'
+              = image_tag current_user.image.url(:thumb_header), class: 'user_image'
             li
-              = link_to "ログアウト", destroy_user_session_path , class: "nav-link btn btn-outline-light", method: :delete
+              = link_to "ログアウト", destroy_user_session_path, class: "nav-link btn btn-outline-light", method: :delete
           - else
             li
               = link_to "アカウント作成", new_user_registration_path, class: "nav-link btn btn-outline-light"

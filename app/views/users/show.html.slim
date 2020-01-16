@@ -1,4 +1,4 @@
-.container
+.container.top-margin
   h1
     | ユーザー情報
   .row.mt-4
@@ -20,8 +20,9 @@
     .col-8
       .text-right 登録日: #{simple_time(@user.created_at)}
       .h5 自己紹介 :
-      .profile-size.p-4
-        = @user.profile
+      .profile-size.p-3
+        / = @user.profile
+        =simple_format(@user.profile)
       .row.mt-5.text-center.justify-content-center
         .col-5
           h5 いいね！された数:　#{@likes_count}回

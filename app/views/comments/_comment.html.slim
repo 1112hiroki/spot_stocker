@@ -1,6 +1,6 @@
   - spot.comments.order(:created_at).each do |comment|
     .my-3
-      .row
+      .row.mb-2
         .col-4.d-flex
           .userHeader_img
             = image_tag comment.user.image.url(:thumb_header), class: 'user_image'
@@ -10,7 +10,7 @@
           .align-self-center.float-right.text-muted
             |投稿日時:
             = simple_time(comment.created_at)
-      = comment.content
+      =simple_format(comment.content)
       - if current_user && current_user.id == comment.user.id
         .text-right
           = link_to '削除', spot_comment_path(spot, comment), method: :delete, data: { confirm: 'コメントを削除しますか？' }, remote: true

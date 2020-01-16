@@ -76,8 +76,15 @@ body {
   width:27px;
 }
 
-.user_name {
+.user_name{
   padding: 0px;
+}
+
+.user_name_color{
+  color: #fff;
+  &:hover{
+    color: #fff;
+  }
 }
 
 .btn-header {
@@ -221,7 +228,12 @@ body {
 
 .btn-comment {
   background: #56CCF2;
-  color: #fff
+  color: #fff;
+  transition: opacity .5s;
+  &:hover{
+    color: #fff;
+    opacity: .6;
+  }
 }
 
 
@@ -565,7 +577,8 @@ body {
   height: 150px;
   border: solid 1px #aaa;
   border-radius: 5px;
-  background-color: #eee;
+  background-color: rgb(250, 250, 250);
+  overflow: auto;
 }
 
 // spots/index
