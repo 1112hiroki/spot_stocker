@@ -48,8 +48,8 @@
             i.fas.fa-search
             = f.label :spot_name_cont, 'スポット検索', class: "mb-0"
             .d-flex.my-2
-              = f.search_field :spot_name_cont, class:'form-control', placeholder: "東京スカイツリー"
-              = f.submit class:'btn btn-primary'
+              = f.search_field :spot_name_cont, class:'search-area', placeholder: "東京スカイツリー"
+              = f.submit class:'search-btn btn-primary'
             .i.fas.fa-sort-amount-up.align-self-center.mr-1.my-2
             |並び替え
             = f.select( :sorts, { '投稿日時(新しい)順': 'id desc', '投稿日時(古い)順': 'id asc', 'いいね!の多い順': 'likes_count desc', 'レビュー評価が高い順': 'review desc'} , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()', style: 'width: 100%; height: 2rem;'})

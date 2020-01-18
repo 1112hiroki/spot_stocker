@@ -11,7 +11,7 @@ ja:
         age: "年代"
         current_password: "更新用パスワード"
       spot:
-        name: "ユーザー名"
+        name: "投稿者"
         sex: "性別"
         age: "年代"
         title: "記事タイトル"
