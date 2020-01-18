@@ -23,7 +23,7 @@ ja:
         postcode: "郵便番号"
         prefecture_code: "都道府県"
         address_city: "市区町村"
-        address_street: "番地"
+        address_street: "以降の住所"
         address_building: "建物名"
       comment:
         content: "コメントを投稿する"

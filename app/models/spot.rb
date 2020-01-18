@@ -9,14 +9,16 @@ class Spot < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
 
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 30 }
   validates :user_id, presence: true
-  validates :spot_name, presence: true
+  validates :spot_name, presence: true, length: { maximum: 30 }
   validates :stay_time, presence: true
   validates :postcode, presence: true, format: {with:/\A\d{7}\z/,message: "に誤りがあります"}
   validates :prefecture_code, presence: true
-
   validates :content, presence: true
+  validates :address_street, length: { maximum: 30 }
+  validates :address_building, length: { maximum: 30 }
+
   mount_uploader :thumbnail, ThumbnailUploader
 
   enum stay_time: { １時間以内: 1, １〜２時間: 2, ２〜３時間: 3, ３時間以上: 4}

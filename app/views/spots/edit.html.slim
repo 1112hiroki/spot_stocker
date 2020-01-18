@@ -97,6 +97,7 @@
             .ProfileImg_description サムネイルをアップロード
             i.fas.fa-camera.fa-3x
             = form.file_field :thumbnail, id: "file_photo"
+            = form.hidden_field :thumbnail_cache
           #userImgPreview.userImgPreview
             img#thumbnail.userImgPreview_content[accept="thumbnail/*" src=""]
             p.userImgPreview_text

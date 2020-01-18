@@ -650,7 +650,17 @@ body {
 // spots/index
 
 .spot-index-title{
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.spot-index-address{
+  line-height:48px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .btn-newpost {
@@ -877,10 +887,11 @@ transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   margin: 0 2px;
 }
 
-.border-top{
+.spot-show-content{
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 2rem;
   margin: 30px 0 2rem;
+  overflow: hidden;
 }
 
 #map{

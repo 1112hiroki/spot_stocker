@@ -48,6 +48,7 @@
           .userProfileImg_description 画像をアップロード
           i.fas.fa-camera.fa-3x
           = f.file_field :image, id: "file_photo"
+          = f.hidden_field :image_cache
         #userImgPreview.userImgPreview
           img#thumbnail.userImgPreview_content[accept="image/*" src=""]
           p.userImgPreview_text
