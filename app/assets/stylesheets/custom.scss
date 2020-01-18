@@ -813,7 +813,8 @@ transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
 .border-top{
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  margin-top: 35px;
+  padding-top: 2rem;
+  margin: 30px 0 2rem;
 }
 
 #map{
