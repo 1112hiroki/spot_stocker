@@ -1,11 +1,23 @@
   .stock
-    - if spot.stocked?(current_user)
-      = form_with model: spot.stocks.find_by(user_id: current_user.id), method: :delete do |f|
-        = button_tag(class: "btn btn-success btn-circle") do
-          i.fas.fa-book
+    - if current_user != nil
+      - if spot.stocked?(current_user)
+        = form_with model: spot.stocks.find_by(user_id: current_user.id), method: :delete do |f|
+          .stock-notice
+            |ストック済
+          = button_tag(class: "btn btn-stocked btn-success btn-circle") do
+              i.fas.fa-book
+              span.btn-notice ストック済み
+      - else
+        = form_with model: spot.stocks.build do |f|
+          div
+            = hidden_field_tag :spot_id, spot.id
+          = button_tag(class: "btn btn-stock btn-outline-secondary btn-circle") do
+            i.fas.fa-book-open
+            span.btn-notice ストックする
     - else
       = form_with model: spot.stocks.build do |f|
         div
           = hidden_field_tag :spot_id, spot.id
-        = button_tag(class: "btn btn-stock btn-outline-secondary btn-circle") do
+        = button_tag(class: "btn btn-stock btn-outline-secondary btn-circle btn-not-allowed-notice") do
           i.fas.fa-book-open
+          span.btn-notice ストックをするには、ログインして下さい。

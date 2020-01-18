@@ -187,35 +187,101 @@ body {
   font-size: 20px;
 }
 
-.btn-liked {
-  background-color: #F8B44E;
-  color: #fff;
-    &:hover{
-      color: #fff;
-    }
-}
-
 .btn-like {
+  position: relative;
   border: solid 2px #F8B44E;
   color: #F8B44E;
     &:hover{
       color: #fff;
     }
+    &:hover .btn-notice{
+      visibility:visible;
+      opacity: 0.6;
+      transition: 1.0s;
+    }
+}
+
+.btn-liked {
+  position: relative;
+  background-color: #F8B44E;
+  color: #fff;
+    &:hover{
+      color: #fff;
+    }
+    &:hover .btn-notice{
+      visibility:visible;
+      opacity: 0.6;
+      transition: 1.0s;
+    }
+  }
+
+.btn-notice{
+  opacity: 0;
+  visibility:hidden;
+  font-size: .75rem;
+  width: 130px;
+  position: absolute;
+  top: 0;
+  left: 75px;
+  padding: 8px;
+  border-radius: 5px;
+  background: #222;
+  color: #fff;
+  font-weight: bold;
+}
+
+.btn-notice:after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: -20px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #222;
+}
+
+.btn-not-allowed-notice{
+  cursor: not-allowed !important;
 }
 
 // stock
 .stock {
+  position: relative;
   text-align: center;
   margin-top: 50px;
 }
 
 .btn-stock {
+  position: relative;
   border: solid 2px;
   &:hover{
     color: #fff;
     background-color: #28A745 !important;
     border: solid 2px #28A745;
   }
+  &:hover .btn-notice{
+    visibility:visible;
+    opacity: 0.8;
+    transition: .7s;
+  }
+}
+
+.btn-stocked{
+  position: relative;
+  &:hover .btn-notice{
+    visibility:visible;
+    opacity: 0.8;
+    transition: .7s;
+  }
+}
+
+.stock-notice{
+  width:100%;
+  position: absolute;
+  top: -20px;
+  color: #28A745;
+  font-size: .65rem;
+  font-weight: bold;
 }
 
 // comment
