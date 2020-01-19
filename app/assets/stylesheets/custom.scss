@@ -926,3 +926,26 @@ transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     color: #666;
   }
 }
+
+
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background: #F8B44E;     /*背景の色を変える*/
+  border-color: #F8B44E;
+  &:hover {
+    color: #fff;
+  }
+}
+
+.page-link {
+  color: #F8B44E;
+  &:hover {
+    z-index: 2;
+    color: #F8B44E;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+  }
+}
