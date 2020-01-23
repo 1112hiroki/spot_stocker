@@ -11,16 +11,6 @@ body {
   margin-top: 1.5rem;
 }
 
-.flash {
-  color: white;
-  text-align: center;
-  &__alert{
-    background-color: red;
-  }
-  &__notice {
-    background-color: #56CCF2;
-  }
-}
 
 .error_message {
   text-align: center;
@@ -507,7 +497,7 @@ body {
 
 .notice,
 .alert {
-  display: none;
+  margin-bottom: 0;
 }
 
 .sinupPage {
