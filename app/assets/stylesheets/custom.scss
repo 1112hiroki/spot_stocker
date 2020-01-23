@@ -1,5 +1,7 @@
 body {
   overflow: visible;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   h1{
     font-size: 30px;
   }
@@ -737,8 +739,12 @@ body {
 
 .spot-content{
   height:125px;
-  overflow: hidden;
   color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
 }
 
 .search-area{
