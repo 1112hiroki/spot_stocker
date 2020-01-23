@@ -1,7 +1,7 @@
 .container.top-margin
   h1 スポット一覧
   .row
-    .col-3
+    .col-sm-3.hidden-xs
       .side_bar
         - if current_user
           .border.rounded.p-3.box-shadow
@@ -53,7 +53,7 @@
             .i.fas.fa-sort-amount-up.align-self-center.mr-1.my-2
             |並び替え
             = f.select( :sorts, { '投稿日時(新しい)順': 'id desc', '投稿日時(古い)順': 'id asc', 'いいね!の多い順': 'likes_count desc', 'レビュー評価が高い順': 'review desc'} , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()', style: 'width: 100%; height: 2rem;'})
-    .col-9
+    .col-sm-9
       hr class="my-2"
       -if @spots.present?
         - @spots.each do |spot|
