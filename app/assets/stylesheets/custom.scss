@@ -1,5 +1,7 @@
 body {
   overflow: visible;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   h1{
     font-size: 30px;
   }
@@ -58,6 +60,10 @@ body {
         color: #fff;
         font-size: 22px;
         font-weight: bolder;
+        transition: opacity .3s;
+        &:hover {
+          opacity: .6;
+        }
       }
       &_inner {
         display: flex;
@@ -129,11 +135,13 @@ body {
 }
 
 .userHeader_img {
+  background-color:  rgba(0, 0, 0, 0.1);
+  border: solid 1px  rgba(0, 0, 0, 0.1);
   width: 40px;
   height: 40px;
   position: relative;
   margin-right: 20px;
-  border-radius: 50%;
+  border-radius: 30%;
   overflow: hidden;
   display: inline-block;
 }
@@ -196,8 +204,8 @@ body {
     }
     &:hover .btn-notice{
       visibility:visible;
-      opacity: 0.6;
-      transition: 1.0s;
+      opacity: 0.7;
+      transition: 0.8s;
     }
 }
 
@@ -210,8 +218,8 @@ body {
     }
     &:hover .btn-notice{
       visibility:visible;
-      opacity: 0.6;
-      transition: 1.0s;
+      opacity: 0.7;
+      transition: 0.8s;
     }
   }
 
@@ -622,11 +630,13 @@ body {
 
 // users/show
 .userInfo_img {
+  background-color:  rgba(0, 0, 0, 0.1);
+  border: solid 1px  rgba(0, 0, 0, 0.1);
   width: 200px;
   height: 200px;
   position: relative;
   margin: 0 auto;
-  border-radius: 50%;
+  border-radius: 30%;
   overflow: hidden;
   display: inline-block;
   }
@@ -733,8 +743,12 @@ body {
 
 .spot-content{
   height:125px;
-  overflow: hidden;
   color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
 }
 
 .search-area{

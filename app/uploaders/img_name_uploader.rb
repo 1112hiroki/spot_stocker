@@ -12,11 +12,11 @@ class ImgNameUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process resize_to_fit: [400, 400]
+    process resize_to_fit: [300, 300]
   end
 
   version :thumb_header do
-    process resize_to_fit: [80, 80]
+    process resize_to_fit: [60, 60]
   end
 
   def store_dir
