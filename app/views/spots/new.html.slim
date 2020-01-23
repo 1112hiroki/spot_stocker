@@ -3,7 +3,7 @@
   .nav.justify-content-start.my-4
     =link_to spots_path, class: 'text-muted' do
       i.fas.fa-map-marked-alt.mt-2.mr-1
-      span スポット一覧へ戻る
+      span スポット一覧へ
   = form_with model: @spot, local:true , class: 'h-adr' do |form|
     = hidden_field_tag :country, "Japan", class: "p-country-name"
     - if @spot.errors.any?
@@ -20,14 +20,16 @@
         .form-group
           .i.fas.fa-pen-fancy.align-self-center.mr-1
           = form.label :title
-          .badge.badge-danger.ml-2 必須
+          .badge.badge-danger.mx-2 必須
+          span.text-muted.small  ５~30文字で入力して下さい
           | 　
           br
           = form.text_field :title, class: "form-control", placeholder: "【雨の日でもOK】東京スカイツリー観光"
         .form-group
           .i.fas.fa-map-marker-alt.align-self-center.mr-1
           = form.label :spot_name
-          .badge.badge-danger.ml-2 必須
+          .badge.badge-danger.mx-2 必須
+          span.text-muted.small  ５~30文字で入力して下さい
           | 　
           br
           = form.text_field :spot_name, class: "form-control", placeholder: "東京スカイツリー"
@@ -35,7 +37,7 @@
           .i.fab.fa-gratipay.align-self-center.mr-1
           = form.label :review
           .badge.badge-danger.mx-2 必須
-          span.text-muted.small  星をクリックして評価して下さい。
+          span.text-muted.small  星をクリックして評価して下さい
           br
           = form.hidden_field :review, id: "review_star"
         .form-group
@@ -43,18 +45,19 @@
           = form.label :stay_time
           .badge.badge-danger.mx-2 必須
           br
-          = form.label '1時間以内：'
+          = form.label :stay_time, '1時間以内：', value: ':１時間以内'
           = form.radio_button :stay_time, :１時間以内
-          = form.label '　　1〜2時間：'
+          = form.label :stay_time, '　　1〜2時間：', value: ':１〜２時間'
           = form.radio_button :stay_time, :１〜２時間
-          = form.label '　　2〜3時間：'
+          = form.label :stay_time, '　　2〜3時間：', value: ':２〜３時間'
           = form.radio_button :stay_time, :２〜３時間
-          = form.label '　　3時間以上：'
+          = form.label :stay_time, '　　3時間以上：', value: ':３時間以上'
           = form.radio_button :stay_time, :３時間以上
         .form-group.mt-4
           .i.fas.fa-map-signs.align-self-center.mr-1
           = form.label '郵便番号'
-          .badge.badge-danger.ml-2 必須
+          .badge.badge-danger.mx-2 必須
+          span.text-muted.small  ハイフン無し/７桁で入力して下さい
           |
           br
           |〒

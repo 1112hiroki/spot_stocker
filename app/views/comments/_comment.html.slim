@@ -11,7 +11,7 @@
             |投稿日時:
             = simple_time(comment.created_at)
       =simple_format(comment.content)
-      - if current_user && current_user.id == comment.user.id
+      - if current_user && current_user.id == comment.user.id || current_user.admin?
         .text-right
           = link_to '削除', spot_comment_path(spot, comment), method: :delete, data: { confirm: 'コメントを削除しますか？' }, remote: true
       hr
