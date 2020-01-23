@@ -58,6 +58,10 @@ body {
         color: #fff;
         font-size: 22px;
         font-weight: bolder;
+        transition: opacity .3s;
+        &:hover {
+          opacity: .6;
+        }
       }
       &_inner {
         display: flex;
@@ -196,8 +200,8 @@ body {
     }
     &:hover .btn-notice{
       visibility:visible;
-      opacity: 0.6;
-      transition: 1.0s;
+      opacity: 0.7;
+      transition: 0.8s;
     }
 }
 
@@ -210,8 +214,8 @@ body {
     }
     &:hover .btn-notice{
       visibility:visible;
-      opacity: 0.6;
-      transition: 1.0s;
+      opacity: 0.7;
+      transition: 0.8s;
     }
   }
 
