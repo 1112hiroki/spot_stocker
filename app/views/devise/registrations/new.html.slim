@@ -25,23 +25,23 @@
         = f.label :sex
         .badge.badge-danger.ml-2 必須
         br
-        = f.label '男性：'
+        = f.label :sex, '男性：', value: ':男性'
         = f.radio_button :sex, :男性
-        = f.label '　女性：'
+        = f.label :sex, '　女性：', value: ':女性'
         = f.radio_button :sex, :女性
       .form-group
         = f.label :age
         .badge.badge-danger.ml-2 必須
         br
-        = f.label '10代：'
+        = f.label :age, '10代：', value: ':１０代'
         = f.radio_button :age, :１０代
-        = f.label '　20代：'
+        = f.label :age, '　20代：', value: ':２０代'
         = f.radio_button :age, :２０代
-        = f.label '　30代：'
+        = f.label :age, '　30代：', value: ':３０代'
         = f.radio_button :age, :３０代
-        = f.label '　40代：'
+        = f.label :age, '　40代：', value: ':４０代'
         = f.radio_button :age, :４０代
-        = f.label '　50代~：'
+        = f.label :age, '　50代~：', value: ':５０代以上'
         = f.radio_button :age, :５０代以上
       .form-group
         | プロフィール画像

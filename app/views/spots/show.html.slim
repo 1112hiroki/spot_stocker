@@ -4,7 +4,7 @@
     .col-6
       =link_to spots_path, class: 'text-muted' do
         i.fas.fa-map-marked-alt.mt-2.mr-1
-        span スポット一覧へ戻る
+        span スポット一覧へ
     .col-6.text-right
       - if user_signed_in? && @spot.user.id == current_user.id || current_user.admin?
         =link_to edit_spot_path(@spot), class: 'text-muted mr-5' do

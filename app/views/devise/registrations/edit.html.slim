@@ -25,22 +25,22 @@
       .form-group
         = f.label :sex
         br
-        = f.label '男性：'
+        = f.label :sex, '男性：', value: ':男性'
         = f.radio_button :sex, :男性
-        = f.label '　女性：'
+        = f.label :sex, '　女性：', value: ':女性'
         = f.radio_button :sex, :女性
       .form-group
         = f.label :age
         br
-        = f.label '10代：'
+        = f.label :age, '10代：', value: ':１０代'
         = f.radio_button :age, :１０代
-        = f.label '　20代：'
+        = f.label :age, '　20代：', value: ':２０代'
         = f.radio_button :age, :２０代
-        = f.label '　30代：'
+        = f.label :age, '　30代：', value: ':３０代'
         = f.radio_button :age, :３０代
-        = f.label '　40代：'
+        = f.label :age, '　40代：', value: ':４０代'
         = f.radio_button :age, :４０代
-        = f.label '　50代~：'
+        = f.label :age, '　50代~：', value: ':５０代以上'
         = f.radio_button :age, :５０代以上
       .form-group
         | プロフィール画像
@@ -53,7 +53,10 @@
           img#thumbnail.userImgPreview_content[accept="image/*" src=""]
           p.userImgPreview_text
             | 画像をアップロード済み
-      .form-group
+      .form-group.border-info
+        .
+          .badge.badge-success.mb-2
+            | パスワードを変更する場合はこちら
         = f.label :password
         - if @minimum_password_length
           em
@@ -69,7 +72,7 @@
         = f.label '情報更新するにはパスワードを入力してください'
         .badge.badge-danger.ml-2 必須
         br
-        = f.password_field :current_password, class: "form-control", placeholder: "更新用パスワード"
+        = f.password_field :current_password, class: "form-control", placeholder: "現在のパスワードを入力して下さい"
       .actions.text-center
         = f.submit "更新",class: "btn submitBtn"
     .text-center
