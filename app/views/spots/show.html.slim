@@ -6,7 +6,7 @@
         i.fas.fa-map-marked-alt.mt-2.mr-1
         span スポット一覧へ
     .col-6.text-right
-      - if user_signed_in? && @spot.user.id == current_user.id || current_user.admin?
+      - if user_signed_in? && @spot.user.id == current_user.id || current_user&.admin?
         =link_to edit_spot_path(@spot), class: 'text-muted mr-5' do
           i.fas.fa-edit.mt-2.mr-1
           span 編集

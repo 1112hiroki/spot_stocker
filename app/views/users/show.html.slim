@@ -13,7 +13,7 @@
         .col-4
           h5= @user.sex
       p
-      - if current_user && current_user.id == @user.id || current_user.admin?
+      - if current_user && current_user.id == @user.id || current_user&.admin?
         -if not @user.email == "test@test.com"
           .userAction_edit.userAction_common
             = link_to '編集する',edit_user_registration_path,class: 'btn btn-outline-secondary px-3'
