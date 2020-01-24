@@ -1,78 +1,39 @@
-# Ruby CircleCI 2.1 configuration file
-#
-# Check https://circleci.com/docs/2.0/ruby/ for more details
-#
-version: 2.1
-orbs:
-  ruby: circleci/ruby@0.1.2 # Ruby orb registry: https://circleci.com/orbs/registry/orb/circleci/ruby
-
+version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
-        environment:
-          RAILS_ENV: test
-          DATABASE_HOSTNAME: '127.0.0.1'
-          DATABASE_NAME: qiitan
-          DATABASE_USERNAME: root
-          DATABASE_PASSWORD: ''
-          TZ: UTC
-      - image: circleci/mysql:5.7-ram
-        environment:
-          TZ: UTC
-    working_directory: ~/circleci-rails
-
+      - image: circleci/ruby:2.5.1-node-browsers
+    working_directory: ~/rails-5-1-sandbox
     steps:
       - checkout
+      - run:
+          name: Install System Dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y libappindicator1 fonts-liberation
+            export CHROME_BIN=/usr/bin/google-chrome
+            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo dpkg -i google-chrome*.deb
 
-      - run:
-          name: Configure Bundler
-          command: |
-            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-            source $BASH_ENV
-            gem install bundler
-      - run:
-          name: Install Latest Google Chrome
-          command: |
-            sudo apt-get install libappindicator3-1
-            sudo curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            sudo dpkg -i google-chrome.deb
       - restore_cache:
           keys:
-            - gem-cache-{{ checksum "Gemfile.lock" }}
-            - gem-cache-
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
       - run:
-          name: default mysql client install
+          name: Bundle Install
           command: |
-            sudo apt update
-            sudo apt-get install default-mysql-client
-      - run:
-          name: bundle install
-          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
-      # bundle installされたものcacheする
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
-          key: gem-cache-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
-
-      # run tests!
       - run:
-          name: run tests
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-            bundle exec rspec --format progress \
-                            --format RspecJunitFormatter \
-                            --out /tmp/test-results/rspec.xml \
-                            --format progress \
-                            $TEST_FILES
-        # collect reports
+          name: Create DB
+          command: bundle exec rake db:create db:schema:load --trace
+      - run:
+          name: Run Tests
+          command: RAILS_ENV=test bundle exec rspec
       - store_test_results:
           path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
