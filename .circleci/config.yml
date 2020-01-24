@@ -1,39 +1,58 @@
 version: 2
 jobs:
   build:
+    parameters:
+      assets_precompile:
+        description: "Whether or not do assets:precompile"
+        type: boolean
+        default: false
     docker:
-      - image: circleci/ruby:2.5.1-node-browsers
-    working_directory: ~/rails-5-1-sandbox
+      - image: circleci/ruby:2.5.1-node-browsers # バージョンについては適宜変更
+        environment:
+          BUNDLE_PATH: vendor/bundle
+          BUNDLER_VERSION: 2.0.1
+      - image: circleci/mysql:5.7
+        environment:
+          MYSQL_DATABASE: base_project_test
     steps:
+      - run: gem install bundler -v $BUNDLER_VERSION
       - checkout
+      - restore_cache:
+          keys:
+            - bundle-v2-{{ checksum "Gemfile.lock" }}
+            - yarn-v1-{{ checksum "yarn.lock" }}
+      - run: bin/bundle check || bin/bundle install --deployment
       - run:
-          name: Install System Dependencies
+          name: install yarn dependencies
+          command: bundle exec yarn install
+      - save_cache:
+          key: bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - save_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - run:
+          command: bin/rake db:create db:migrate
+          environment:
+            RAILS_ENV: test
+
+      #- run: bin/bundle exec rubocop
+      #- run: bin/bundle exec rails_best_practices
+      #- run: bundle exec brakeman -5 -A -w 1 -e -z
+      - run:
+          name: run tests
           command: |
             sudo apt-get update
             sudo apt-get install -y libappindicator1 fonts-liberation
             export CHROME_BIN=/usr/bin/google-chrome
             wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo dpkg -i google-chrome*.deb
+      - store_artifacts:
+          path: coverage
 
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      - run:
-          name: Bundle Install
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-      - save_cache:
+      - persist_to_workspace:
+          root: .
           paths:
-            - vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-      - run:
-          name: Create DB
-          command: bundle exec rake db:create db:schema:load --trace
-      - run:
-          name: Run Tests
-          command: RAILS_ENV=test bundle exec rspec
-      - store_test_results:
-          path: /tmp/test-results
+            - .
