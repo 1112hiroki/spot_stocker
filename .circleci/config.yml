@@ -24,7 +24,7 @@ jobs:
       - run: bin/bundle check || bin/bundle install --deployment
       - run:
           name: install yarn dependencies
-          command: bundle exec yarn install
+          command: bundle exec yarn install --ignore-engines # エラー発生のため右記追加 --ignore-engines
       - save_cache:
           key: bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
