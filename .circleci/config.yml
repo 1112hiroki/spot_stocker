@@ -52,6 +52,16 @@ jobs:
       - store_artifacts:
           path: coverage
 
+      - run:
+        name: Run Rspec
+        command: |
+          mkdir ~/rspec
+          bundle exec rspec --profile 10 \
+                          --format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml
+        when: always
+      - store_test_results:
+          path: ~/rspec
+
       - persist_to_workspace:
           root: .
           paths:
