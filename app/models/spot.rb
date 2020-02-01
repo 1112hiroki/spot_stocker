@@ -44,12 +44,12 @@ class Spot < ApplicationRecord
 
   # 現在ログインしているユーザーidを受け取り、記事をストックする
   def stock(user)
-    stocks.create(user_id: user.id)
+    stocks.create(user: user)
   end
 
   # 現在ログインしているユーザーidを受け取り、記事のストックを解除する
   def unstock(user)
-    stocks.find_by(user_id: user.id).destroy
+    stocks.find_by(user: user).destroy
   end
 
   # 記事がストック済みであるかを判定。取得済みであれば true を返す
@@ -59,12 +59,12 @@ class Spot < ApplicationRecord
 
   # 現在ログインしているユーザーidを受け取り、記事をライクする
   def like(user)
-    likes.create(user_id: user.id)
+    likes.create(user: user)
   end
 
   # 現在ログインしているユーザーidを受け取り、記事のライクを解除する
   def unlike(user)
-    likes.find_by(user_id: user.id).destroy
+    likes.find_by(user: user).destroy
   end
 
   # 記事がライク済みであるかを判定。取得済みであれば true を返す
