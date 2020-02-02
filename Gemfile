@@ -33,6 +33,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
   gem 'sqlite3', '~> 1.4'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -53,4 +57,8 @@ end
 
 group :production do
   gem 'mysql2'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
