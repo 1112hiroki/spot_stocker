@@ -101,7 +101,7 @@
             infowindow.open(map, marker);
         });
     }
-  script async="" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_KEY']}&callback=initMap"
+  script async="" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google[:map_key]}&callback=initMap"
 
   javascript:
     $("#star-review-#{@spot.id}").raty({
