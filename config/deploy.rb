@@ -19,7 +19,7 @@ set :deploy_to, '/var/www/projects/spot_stocker'
 # You can configure the Airbrussh format using :format_options.
 # These are the defaults.
 # set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/master.key')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 # Default value for :pty is false
