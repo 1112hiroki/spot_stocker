@@ -4,7 +4,7 @@ lock "~> 3.11.2"
 set :application, "spot_stocker"
 set :repo_url, "git@github.com:1112hiroki/spot_stocker.git"
 
-set :branch, 'capistrano_add'
+set :branch, 'master'
 
 set :deploy_to, '/var/www/projects/spot_stocker'
 # Default branch is :master
