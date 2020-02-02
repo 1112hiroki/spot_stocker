@@ -11,7 +11,7 @@ class Spot < ApplicationRecord
 
   validates :title, presence: true, length: { in: 5..30 }
   validates :user_id, presence: true
-  validates :spot_name, presence: true, length: { in: 5..30 }
+  validates :spot_name, presence: true, length: { in: 2..30 }
   validates :stay_time, presence: true
   validates :postcode, presence: true, format: {with:/\A\d{7}\z/,message: "に誤りがあります"}
   validates :prefecture_code, presence: true
