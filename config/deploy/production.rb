@@ -60,4 +60,4 @@ server '18.176.49.92', user: 'ec2-user', roles: %w{app db web}
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-set :ssh_options, keys: '~/.ssh/spot-stocker.pem'
+set :ssh_options, keys: '~/.ssh/aws/spot-stocker.pem'
