@@ -6,7 +6,7 @@ set :repo_url, "git@github.com:1112hiroki/spot_stocker.git"
 
 set :branch, 'capistrano_add'
 
-set :deploy_to, '/var/www/spot_stocker'
+set :deploy_to, '/var/www/projects/spot_stocker'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
