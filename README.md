@@ -6,18 +6,22 @@
 こんな悩みを解決したい方の手助けになると思い作成しました。
 
 # サービスURL
-現在はheroku上にデプロイしております。（レスポンシブは現在未対応です）
+現在はEC2上とheroku上にデプロイしております。（レスポンシブは現在未対応です）
+http://spot-stocker.com :EC2
 
-
-https://spot-stocker.herokuapp.com
+https://spot-stocker.herokuapp.com :heroku
 
 # 技術スタック
 * Ruby 2.5.1
 * Rails 6.0.1
   * Slim　（HTMLテンプレートエンジン使用）
 * MySQL 
+* CircleCI
 * heroku
-  * S3 (AWSのS3にて画像データの保存)
+  * （AWS:S3)
+* EC2
+  * （AWS：S3・VPC・RDS・Route５３）
+
 
 # 機能一覧
 * サインアップ・サインイン (devise)
