@@ -7,9 +7,11 @@
 
 # サービスURL
 現在はEC2上とheroku上にデプロイしております。（レスポンシブは現在未対応です）
-http://spot-stocker.com :EC2
 
-https://spot-stocker.herokuapp.com :heroku
+EC2: http://spot-stocker.com
+
+
+heroku: https://spot-stocker.herokuapp.com
 
 # 技術スタック
 * Ruby 2.5.1
@@ -17,10 +19,10 @@ https://spot-stocker.herokuapp.com :heroku
   * Slim　（HTMLテンプレートエンジン使用）
 * MySQL 
 * CircleCI
-* heroku
-  * （AWS:S3)
 * EC2
   * （AWS：S3・VPC・RDS・Route５３）
+* heroku
+  * （AWS:S3)
 
 
 # 機能一覧
