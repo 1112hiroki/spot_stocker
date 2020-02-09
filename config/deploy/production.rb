@@ -3,7 +3,8 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server '18.176.49.92', user: 'ec2-user', roles: %w{app db web}
+server ENV['SERVICE_NAME_PRODUCTION_IP'], user: 'ec2-user', port: 22, roles: %w{app db web}, primary: true
+
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
@@ -60,4 +61,7 @@ server '18.176.49.92', user: 'ec2-user', roles: %w{app db web}
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-set :ssh_options, keys: '~/.ssh/aws/spot-stocker.pem'
+set :ssh_options, {
+  forward_agent: true,
+  keys: "#{ENV['SERVICE_NAME_PRODUCTION_SSH_KEY']}"
+}

@@ -62,6 +62,17 @@ jobs:
       - store_test_results:
           path: ~/rspec
 
+      - add_ssh_keys:
+          fingerprints:
+            - "93:e9:d0:fd:67:4c:9b:29:e6:5c:9f:a1:f0:58:6b:c8"
+      - deploy:
+          name: capistrano deploy
+          command: |
+            if [ "${CIRCLE_BRANCH}" != "master" ]; then
+              exit 0
+            fi
+            bundle exec cap production deploy
+
       - persist_to_workspace:
           root: .
           paths:
