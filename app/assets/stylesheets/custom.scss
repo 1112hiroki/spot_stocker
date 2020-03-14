@@ -1,5 +1,4 @@
 body {
-  text-align: center;
   overflow: visible;
   h1{
     font-size: 25px;
@@ -73,6 +72,9 @@ body {
 }
 
 //top
+.top {
+  text-align: center;
+}
 .box {
   width: 100%;
   max-width: 1000px;

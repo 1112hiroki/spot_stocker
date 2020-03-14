@@ -3,7 +3,11 @@
   "private": true,
   "dependencies": {
     "@rails/actiontext": "^6.0.1",
+    "@rails/webpacker": "4.2.0",
     "rails-ujs": "^5.2.4",
     "trix": "^1.0.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.9.0"
   }
 }

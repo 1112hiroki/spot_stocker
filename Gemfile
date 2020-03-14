@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -66,3 +66,4 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.9.0'
 gem 'devise'
 gem 'image_processing', '~> 1.9.3'
+gem 'webpacker', github: 'rails/webpacker'
