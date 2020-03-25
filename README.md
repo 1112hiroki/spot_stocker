@@ -9,7 +9,7 @@ http://spot-stocker.com
 
 
 # サービスURL
-現在はEC2上とheroku上にデプロイしております。（レスポンシブは現在未対応です）
+現在はEC2上とheroku上にデプロイしております。（レスポンシブは、現在未対応です）
 
 EC2: http://spot-stocker.com
 
