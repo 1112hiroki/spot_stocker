@@ -21,13 +21,10 @@
       .text-right 登録日: #{simple_time(@user.created_at)}
       .h5 自己紹介 :
       .profile-size.p-3
-        / = @user.profile
         =simple_format(@user.profile)
       .row.mt-5.text-center.justify-content-center
         .col-5
           h5 いいね！された数:　#{@likes_count}回
-        / .col-5
-        /   h5 いいねランキング: #{}
       .h5.mt-5 投稿した記事の数: #{@user.spots.count}件
       table.table.table-hover
         thead.thead-default
