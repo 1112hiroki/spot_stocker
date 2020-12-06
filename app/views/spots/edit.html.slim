@@ -3,7 +3,7 @@
   .nav.justify-content-start.my-4
     =link_to spot_path(@spot), class: 'text-muted' do
       i.fas.fa-map-marked-alt.mt-2.mr-1
-      spna 詳細へ
+      spna 詳細
   = form_with model: @spot, local:true , class: 'h-adr' do |form|
     = hidden_field_tag :country, "Japan", class: "p-country-name"
     - if @spot.errors.any?
