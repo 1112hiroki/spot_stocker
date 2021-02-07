@@ -8,7 +8,6 @@ http://spot-stocker.com
 
 こんな悩みを解決したい方の手助けになると思い作成しました。
 
-
 # サービスURL
 現在はEC2上とheroku上にデプロイしております。（レスポンシブは、現在未対応です）
 
@@ -21,7 +20,7 @@ heroku: https://spot-stocker.herokuapp.com
 * Ruby 2.5.1
 * Rails 6.0.1
   * Slim　（HTMLテンプレートエンジン使用）
-* MySQL 
+* MySQL
 * CircleCI
 * EC2
   * （AWS：S3・VPC・RDS・Route５３）
