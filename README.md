@@ -30,6 +30,7 @@ heroku: https://spot-stocker.herokuapp.com
   * （AWS:S3)
 
 
+
 # 機能一覧
 * サインアップ・サインイン (devise)
   * マイページの表示・編集・ユーザー情報の編集・削除
@@ -70,7 +71,6 @@ heroku: https://spot-stocker.herokuapp.com
 ■ストック：stock
 
 <img width="943" alt="【ER図】Postストッカー_New_Diagram_-_Cacoo" src="https://user-images.githubusercontent.com/57358551/72245754-98eba200-3634-11ea-95ea-004586721271.png">
-
 
 
 # 環境構築方法/セットアップの仕方
