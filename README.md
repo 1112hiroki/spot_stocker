@@ -11,9 +11,6 @@ http://spot-stocker.com
 # サービスURL
 現在はEC2上とheroku上にデプロイしております。（レスポンシブは、現在未対応です）
 
-EC2: http://spot-stocker.com
-
-
 heroku: https://spot-stocker.herokuapp.com
 
 
