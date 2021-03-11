@@ -1,5 +1,6 @@
 # サービス概要
 思い出の場所の共有サイト
+
 「Spotストッカー」
 
 http://spot-stocker.com
