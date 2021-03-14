@@ -10,6 +10,7 @@ http://spot-stocker.com
 こんな悩みを解決したい方の手助けになると思い作成しました。
 
 # サービスURL
+
 現在はEC2上とheroku上にデプロイしております。（レスポンシブは、現在未対応です）
 
 heroku: https://spot-stocker.herokuapp.com
