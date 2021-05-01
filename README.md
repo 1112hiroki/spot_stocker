@@ -45,6 +45,7 @@ heroku: https://spot-stocker.herokuapp.com
 
 ●プレビュー>>スポット一覧画面
 ![FireShot Capture 010 - Spotストッカー - spot-stocker herokuapp com](https://user-images.githubusercontent.com/57358551/72244809-6345b980-3632-11ea-846e-824b73fa8109.png)
+
 ●プレビュー>>記事投稿画面
 ![FireShot Capture 011 - Spotストッカー - spot-stocker herokuapp com](https://user-images.githubusercontent.com/57358551/72244814-6771d700-3632-11ea-9068-d128b6460199.png)
 
