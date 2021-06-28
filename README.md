@@ -14,7 +14,6 @@
 heroku: https://spot-stocker.herokuapp.com
 
 
-
 # 技術スタック
 * Ruby 2.5.1
 * Rails 6.0.1
