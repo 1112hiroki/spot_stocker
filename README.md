@@ -10,7 +10,6 @@
 
 現在はEC2上とheroku上にデプロイしております。（レスポンシブは、現在未対応です）
 
-
 heroku: https://spot-stocker.herokuapp.com
 
 
