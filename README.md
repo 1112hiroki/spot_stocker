@@ -25,7 +25,6 @@ heroku: https://spot-stocker.herokuapp.com
 * heroku
   * （AWS:S3)
 
-
 # 機能一覧
 * サインアップ・サインイン (devise)
   * マイページの表示・編集・ユーザー情報の編集・削除
