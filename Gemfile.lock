@@ -221,6 +221,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     popper_js (1.16.0)
     pry (0.14.1)
@@ -229,7 +231,7 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.6)
-    puma (4.3.10)
+    puma (4.3.11)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
@@ -374,6 +376,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-18
+  x86_64-linux
 
 DEPENDENCIES
   aws-sdk-s3
@@ -402,7 +405,7 @@ DEPENDENCIES
   mini_magick
   mysql2
   pry-rails
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.1)
   ransack
   rspec-rails
