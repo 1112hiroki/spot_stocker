@@ -8,7 +8,7 @@ gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'jbuilder', '~> 2.7'
-gem 'image_processing', '~> 1.9.3'
+gem 'image_processing', '~> 1.12.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'simple_form'
 gem 'coffee-rails', '~> 5.0'
